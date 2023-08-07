@@ -36,4 +36,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  has_many :comments
+  has_many :article_likes
+  has_many :articles, through: :article_likes
 end
