@@ -20,5 +20,5 @@
 class Article < ApplicationRecord
   has_many :comments, dependent: :restrict_with_exception
   has_many :article_likes, dependent: :restrict_with_exception
-  has_many :users, through: :article_likes
+  belongs_to :user
 end
