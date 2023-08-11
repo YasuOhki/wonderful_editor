@@ -6,8 +6,8 @@
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  article_id :bigint           not null
-#  user_id    :bigint           not null
+#  article_id :bigint           default(1), not null
+#  user_id    :bigint           default(1), not null
 #
 # Indexes
 #
