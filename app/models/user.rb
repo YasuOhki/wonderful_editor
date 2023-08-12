@@ -39,5 +39,6 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :restrict_with_exception
   has_many :article_likes, dependent: :restrict_with_exception
-  has_many :articles, through: :article_likes
+  #has_many :articles, through: :article_likes
+  has_many :articles, dependent: :restrict_with_exception
 end
