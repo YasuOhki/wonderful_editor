@@ -37,6 +37,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  validates :password, presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は英字と数字のみ使用できます" }
+
   has_many :comments, dependent: :restrict_with_exception
   has_many :article_likes, dependent: :restrict_with_exception
   has_many :articles, dependent: :restrict_with_exception
