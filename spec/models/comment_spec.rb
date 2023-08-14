@@ -22,5 +22,17 @@
 require "rails_helper"
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "bodyが空でないとき" do
+    it "Commentの登録に成功する" do
+      tmp_comment = FactoryBot.build(:comment)
+      expect(tmp_comment.valid?).to eq true
+    end
+  end
+
+  context "bodyが空のとき" do
+    it "Commentの登録に失敗する" do
+      tmp_comment = Comment.new(body:"")
+      expect(tmp_comment.valid?).to eq false
+    end
+  end
 end

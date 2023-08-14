@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -29,17 +27,27 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  extend Devise::Models
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  include DeviseTokenAuth::Concerns::User
+require 'rails_helper'
 
-  validates :password, presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は英字と数字のみ使用できます" }, length: { minimum: 8 }
+RSpec.describe User, type: :model do
+  context "passwordに英数字を使用しているとき(文字数は8文字以上)" do
+    it "passwordの登録に成功する" do
+      tmp_user = FactoryBot.build(:user)
+      expect(tmp_user.valid?).to eq true
+    end
+  end
 
-  has_many :comments, dependent: :restrict_with_exception
-  has_many :article_likes, dependent: :restrict_with_exception
-  has_many :articles, dependent: :restrict_with_exception
+  context "passwordに英数字以外の文字を使用しているとき" do
+    it "passwordの登録に失敗する" do
+      tmp_user = User.new(name:"test", email: "test@example.com", password: "あああ")
+      expect(tmp_user.valid?).to eq false
+    end
+  end
+
+  context "passwordに英数字を使用しているとき(文字数は8文字未満)" do
+    it "passwordの登録に失敗する" do
+      tmp_user = User.new(name:"test", email: "test@example.com", password: "test")
+      expect(tmp_user.valid?).to eq false
+    end
+  end
 end

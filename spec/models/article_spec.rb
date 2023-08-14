@@ -20,5 +20,35 @@
 require "rails_helper"
 
 RSpec.describe Article, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "titleとbodyが空でなく、ユニークであるとき" do
+    it "Articleの登録に成功する" do
+      tmp_article = FactoryBot.create(:article)
+      binding.pry
+      expect(tmp_article.valid?).to eq true
+    end
+  end
+
+  context "titleが空のとき" do
+    it "Articleの登録に失敗する" do
+      tmp_article = Article.new(title:"", body:"testtest")
+      expect(tmp_article.valid?).to eq false
+    end
+  end
+
+  context "bodyが空のとき" do
+    it "Articleの登録に失敗する" do
+      tmp_article = Article.new(title:"test", body:"")
+      expect(tmp_article.valid?).to eq false
+    end
+  end
+
+  context "titleが既存のものと同じであるとき" do
+    it "Articleの登録に失敗する" do
+    end
+  end
+
+  context "bodyが既存のものと同じであるとき" do
+    it "Articleの登録に失敗する" do
+    end
+  end
 end

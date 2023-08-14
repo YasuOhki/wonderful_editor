@@ -21,5 +21,13 @@
 require "rails_helper"
 
 RSpec.describe ArticleLike, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "article_idとuser_idの組み合わせが既存のレコードと異なるとき" do
+    it "ArticleLikeの登録に成功する" do
+    end
+  end
+
+  context "aarticle_idとuser_idの組み合わせが既存のレコードと同じとき" do
+    it "ArticleLikeの登録に失敗する" do
+    end
+  end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -29,17 +27,10 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  extend Devise::Models
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  include DeviseTokenAuth::Concerns::User
-
-  validates :password, presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は英字と数字のみ使用できます" }, length: { minimum: 8 }
-
-  has_many :comments, dependent: :restrict_with_exception
-  has_many :article_likes, dependent: :restrict_with_exception
-  has_many :articles, dependent: :restrict_with_exception
+FactoryBot.define do
+  factory :user do
+    name{ Faker::Name.name }
+    email{ Faker::Internet.email }
+    password{ Faker::Internet.password(min_length: 8, mix_case: true, special_characters: false) }
+  end
 end
