@@ -11,6 +11,7 @@
 #
 # Indexes
 #
+#  index_articles_on_title    (title) UNIQUE
 #  index_articles_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -23,7 +24,7 @@ RSpec.describe Article, type: :model do
   context "titleとbodyが空でなく、ユニークであるとき" do
     it "Articleの登録に成功する" do
       tmp_user = FactoryBot.create(:user)
-      tmp_article = tmp_user.articles.create!(title:"test", body:"test")
+      tmp_article = tmp_user.articles.create!(title: "test", body: "test")
       expect(tmp_article.valid?).to eq true
     end
   end
@@ -31,7 +32,7 @@ RSpec.describe Article, type: :model do
   context "titleが空のとき" do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
-      tmp_article = tmp_user.articles.create(title:"", body:"testtest")
+      tmp_article = tmp_user.articles.create!(title: "", body: "testtest")
       expect(tmp_article.valid?).to eq false
       expect(tmp_article.errors.details[:title][0][:error]).to eq :blank
     end
@@ -40,7 +41,7 @@ RSpec.describe Article, type: :model do
   context "bodyが空のとき" do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
-      tmp_article = tmp_user.articles.create(title:"test", body:"")
+      tmp_article = tmp_user.articles.create!(title: "test", body: "")
       expect(tmp_article.valid?).to eq false
       expect(tmp_article.errors.details[:body][0][:error]).to eq :blank
     end
@@ -49,8 +50,8 @@ RSpec.describe Article, type: :model do
   context "titleが既存のものと同じであるとき" do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
-      first_article = tmp_user.articles.create!(title:"test", body:"test")
-      test_article = tmp_user.articles.create(title:"test", body:"test2")
+      tmp_user.articles.create!(title: "test", body: "test")
+      test_article = tmp_user.articles.create!(title: "test", body: "test2")
       expect(test_article.errors.details[:title][0][:error]).to eq :taken
     end
   end
@@ -58,8 +59,8 @@ RSpec.describe Article, type: :model do
   context "bodyが既存のものと同じであるとき" do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
-      first_article = tmp_user.articles.create!(title:"test", body:"test")
-      test_article = tmp_user.articles.create(title:"test2", body:"test")
+      tmp_user.articles.create!(title: "test", body: "test")
+      test_article = tmp_user.articles.create!(title: "test2", body: "test")
       expect(test_article.errors.details[:body][0][:error]).to eq :taken
     end
   end

@@ -11,6 +11,7 @@
 #
 # Indexes
 #
+#  index_articles_on_title    (title) UNIQUE
 #  index_articles_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -18,8 +19,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
-  validates :title, presence: true, uniqueness: {case_sensitive: false}
-  validates :body, presence: true, uniqueness: {case_sensitive: false}
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :body, presence: true
 
   has_many :comments, dependent: :restrict_with_exception
   has_many :article_likes, dependent: :restrict_with_exception

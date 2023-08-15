@@ -10,8 +10,9 @@
 #
 # Indexes
 #
-#  index_article_likes_on_article_id  (article_id)
-#  index_article_likes_on_user_id     (user_id)
+#  index_article_likes_on_article_id              (article_id)
+#  index_article_likes_on_user_id                 (user_id)
+#  index_article_likes_on_user_id_and_article_id  (user_id,article_id) UNIQUE
 #
 # Foreign Keys
 #
@@ -25,7 +26,7 @@ RSpec.describe ArticleLike, type: :model do
     it "ArticleLikeの登録に成功する" do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create!(title: "test", body: "test")
-      tmp_articlelike = ArticleLike.create!(user_id:tmp_user.id, article_id:tmp_article.id)
+      tmp_articlelike = ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
       expect(tmp_articlelike.valid?).to eq true
     end
   end
@@ -34,8 +35,8 @@ RSpec.describe ArticleLike, type: :model do
     it "ArticleLikeの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create!(title: "test", body: "test")
-      first_articlelike = ArticleLike.create!(user_id:tmp_user.id, article_id:tmp_article.id)
-      test_articlelike = ArticleLike.create(user_id:tmp_user.id, article_id:tmp_article.id)
+      ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
+      test_articlelike = ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
       expect(test_articlelike.errors.details[:user_id][0][:error]).to eq :taken
     end
   end

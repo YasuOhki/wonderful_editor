@@ -24,13 +24,14 @@
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_name                  (name) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 FactoryBot.define do
   factory :user do
-    name{ Faker::Name.name }
-    email{ Faker::Internet.email }
-    password{ Faker::Internet.password(min_length: 8, mix_case: true, special_characters: false) }
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    password { Faker::Internet.password(min_length: 8, mix_case: true, special_characters: false) }
   end
 end

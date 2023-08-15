@@ -24,10 +24,11 @@
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_name                  (name) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   context "nameがユニークなとき" do
@@ -46,26 +47,26 @@ RSpec.describe User, type: :model do
     end
   end
 
-#  context "passwordに英数字を使用しているとき(文字数は8文字以上)" do
-#    it "passwordの登録に成功する" do
-#      tmp_user = FactoryBot.build(:user)
-#      expect(tmp_user.valid?).to eq true
-#    end
-#  end
-#
-#  context "passwordに英数字以外の文字を使用しているとき(文字数は8文字以上ある)" do
-#    it "passwordの登録に失敗する" do
-#      tmp_user = User.new(name:"test", email: "test@example.com", password: "あああああああああ")
-#      expect(tmp_user.valid?).to eq false
-#      expect(tmp_user.errors.errors[0].options[:message]).to eq "は英字と数字のみ使用できます"
-#    end
-#  end
-#
-#  context "passwordに英数字を使用しているとき(文字数は8文字未満)" do
-#    it "passwordの登録に失敗する" do
-#      tmp_user = User.create(name:"test", email: "test@example.com", password: "test")
-#      expect(tmp_user.valid?).to eq false
-#      expect(tmp_user.errors.errors[0].type).to eq :too_short
-#    end
-#  end
+  #  context "passwordに英数字を使用しているとき(文字数は8文字以上)" do
+  #    it "passwordの登録に成功する" do
+  #      tmp_user = FactoryBot.build(:user)
+  #      expect(tmp_user.valid?).to eq true
+  #    end
+  #  end
+  #
+  #  context "passwordに英数字以外の文字を使用しているとき(文字数は8文字以上ある)" do
+  #    it "passwordの登録に失敗する" do
+  #      tmp_user = User.new(name:"test", email: "test@example.com", password: "あああああああああ")
+  #      expect(tmp_user.valid?).to eq false
+  #      expect(tmp_user.errors.errors[0].options[:message]).to eq "は英字と数字のみ使用できます"
+  #    end
+  #  end
+  #
+  #  context "passwordに英数字を使用しているとき(文字数は8文字未満)" do
+  #    it "passwordの登録に失敗する" do
+  #      tmp_user = User.create(name:"test", email: "test@example.com", password: "test")
+  #      expect(tmp_user.valid?).to eq false
+  #      expect(tmp_user.errors.errors[0].type).to eq :too_short
+  #    end
+  #  end
 end
