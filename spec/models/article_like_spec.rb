@@ -23,11 +23,20 @@ require "rails_helper"
 RSpec.describe ArticleLike, type: :model do
   context "article_idとuser_idの組み合わせが既存のレコードと異なるとき" do
     it "ArticleLikeの登録に成功する" do
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create!(title: "test", body: "test")
+      tmp_articlelike = ArticleLike.create!(user_id:tmp_user.id, article_id:tmp_article.id)
+      expect(tmp_articlelike.valid?).to eq true
     end
   end
 
   context "aarticle_idとuser_idの組み合わせが既存のレコードと同じとき" do
     it "ArticleLikeの登録に失敗する" do
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create!(title: "test", body: "test")
+      first_articlelike = ArticleLike.create!(user_id:tmp_user.id, article_id:tmp_article.id)
+      test_articlelike = ArticleLike.create(user_id:tmp_user.id, article_id:tmp_article.id)
+      expect(test_articlelike.errors.details[:user_id][0][:error]).to eq :taken
     end
   end
 end

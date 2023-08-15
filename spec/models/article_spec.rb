@@ -22,33 +22,45 @@ require "rails_helper"
 RSpec.describe Article, type: :model do
   context "titleとbodyが空でなく、ユニークであるとき" do
     it "Articleの登録に成功する" do
-      tmp_article = FactoryBot.create(:article)
-      binding.pry
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create!(title:"test", body:"test")
       expect(tmp_article.valid?).to eq true
     end
   end
 
   context "titleが空のとき" do
     it "Articleの登録に失敗する" do
-      tmp_article = Article.new(title:"", body:"testtest")
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create(title:"", body:"testtest")
       expect(tmp_article.valid?).to eq false
+      expect(tmp_article.errors.details[:title][0][:error]).to eq :blank
     end
   end
 
   context "bodyが空のとき" do
     it "Articleの登録に失敗する" do
-      tmp_article = Article.new(title:"test", body:"")
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create(title:"test", body:"")
       expect(tmp_article.valid?).to eq false
+      expect(tmp_article.errors.details[:body][0][:error]).to eq :blank
     end
   end
 
   context "titleが既存のものと同じであるとき" do
     it "Articleの登録に失敗する" do
+      tmp_user = FactoryBot.create(:user)
+      first_article = tmp_user.articles.create!(title:"test", body:"test")
+      test_article = tmp_user.articles.create(title:"test", body:"test2")
+      expect(test_article.errors.details[:title][0][:error]).to eq :taken
     end
   end
 
   context "bodyが既存のものと同じであるとき" do
     it "Articleの登録に失敗する" do
+      tmp_user = FactoryBot.create(:user)
+      first_article = tmp_user.articles.create!(title:"test", body:"test")
+      test_article = tmp_user.articles.create(title:"test2", body:"test")
+      expect(test_article.errors.details[:body][0][:error]).to eq :taken
     end
   end
 end

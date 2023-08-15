@@ -24,15 +24,18 @@ require "rails_helper"
 RSpec.describe Comment, type: :model do
   context "bodyが空でないとき" do
     it "Commentの登録に成功する" do
-      tmp_comment = FactoryBot.build(:comment)
+      tmp_user = FactoryBot.create(:user)
+      tmp_article = tmp_user.articles.create!(title:"test", body:"test")
+      tmp_comment = Comment.create!(body: "test_comment", user_id: tmp_user.id, article_id: tmp_article.id)
       expect(tmp_comment.valid?).to eq true
     end
   end
 
   context "bodyが空のとき" do
     it "Commentの登録に失敗する" do
-      tmp_comment = Comment.new(body:"")
+      tmp_comment = Comment.create(body:"")
       expect(tmp_comment.valid?).to eq false
+      expect(tmp_comment.errors.errors[0].type).to eq :blank
     end
   end
 end
