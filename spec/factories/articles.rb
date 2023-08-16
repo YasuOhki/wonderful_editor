@@ -11,6 +11,7 @@
 #
 # Indexes
 #
+#  index_articles_on_title    (title) UNIQUE
 #  index_articles_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -19,7 +20,7 @@
 #
 FactoryBot.define do
   factory :article do
-    title { "MyString" }
-    body { "MyText" }
+    title { Faker::Book.title }
+    body { Faker::String.random(length: 12) }
   end
 end
