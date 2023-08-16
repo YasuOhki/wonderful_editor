@@ -33,7 +33,7 @@ RSpec.describe Comment, type: :model do
 
   context "bodyが空のとき" do
     it "Commentの登録に失敗する" do
-      tmp_comment = Comment.create!(body: "")
+      tmp_comment = Comment.create(body: "")
       expect(tmp_comment.valid?).to eq false
       expect(tmp_comment.errors.errors[0].type).to eq :blank
     end

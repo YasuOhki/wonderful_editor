@@ -36,7 +36,7 @@ RSpec.describe ArticleLike, type: :model do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create!(title: "test", body: "test")
       ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
-      test_articlelike = ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
+      test_articlelike = ArticleLike.create(user_id: tmp_user.id, article_id: tmp_article.id)
       expect(test_articlelike.errors.details[:user_id][0][:error]).to eq :taken
     end
   end
