@@ -31,12 +31,13 @@ RSpec.describe ArticleLike, type: :model do
     end
   end
 
-  context "aarticle_idとuser_idの組み合わせが既存のレコードと同じとき" do
+  context "article_idとuser_idの組み合わせが既存のレコードと同じとき" do
     it "ArticleLikeの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create!(title: "test", body: "test")
       ArticleLike.create!(user_id: tmp_user.id, article_id: tmp_article.id)
       test_articlelike = ArticleLike.create(user_id: tmp_user.id, article_id: tmp_article.id)
+      test_articlelike.persisted?
       expect(test_articlelike.errors.details[:user_id][0][:error]).to eq :taken
     end
   end

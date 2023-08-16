@@ -33,6 +33,7 @@ RSpec.describe Article, type: :model do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create(title: "", body: "testtest")
+      tmp_article.persisted?
       expect(tmp_article.valid?).to eq false
       expect(tmp_article.errors.details[:title][0][:error]).to eq :blank
     end
@@ -42,6 +43,7 @@ RSpec.describe Article, type: :model do
     it "Articleの登録に失敗する" do
       tmp_user = FactoryBot.create(:user)
       tmp_article = tmp_user.articles.create(title: "test", body: "")
+      tmp_article.persisted?
       expect(tmp_article.valid?).to eq false
       expect(tmp_article.errors.details[:body][0][:error]).to eq :blank
     end
@@ -52,6 +54,7 @@ RSpec.describe Article, type: :model do
       tmp_user = FactoryBot.create(:user)
       tmp_user.articles.create!(title: "test", body: "test")
       test_article = tmp_user.articles.create(title: "test", body: "test2")
+      test_article.persisted?
       expect(test_article.valid?).to eq false
       expect(test_article.errors.details[:title][0][:error]).to eq :taken
     end
