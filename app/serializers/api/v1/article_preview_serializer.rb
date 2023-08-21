@@ -1,4 +1,4 @@
-class ArticlePreviewSerializer < ActiveModel::Serializer
+class Api::V1::ArticlePreviewSerializer < ActiveModel::Serializer
   attributes :id, :title, :user_id
 
   has_many :comments
