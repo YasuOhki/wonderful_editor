@@ -10,6 +10,7 @@ RSpec.describe "Api::V1::Article", type: :request do
       get api_v1_article_preview_index_path
       expect(tmp_user.articles.count).to be > 0
       expect(response).to have_http_status(:ok)
+      binding.pry
     end
   end
 

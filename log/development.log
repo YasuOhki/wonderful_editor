@@ -1663,3 +1663,53 @@ Processing by Api::V1::ArticlePreviewController#index as HTML
 Completed 200 OK in 223ms (Views: 75.9ms | ActiveRecord: 84.9ms | Allocations: 29906)
 
 
+Started GET "/" for ::1 at 2023-08-23 23:03:51 +0900
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/3.1.0/gems/railties-6.1.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/3.1.0/gems/railties-6.1.7.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 25.5ms | Allocations: 468)
+Completed 200 OK in 134ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 3044)
+
+
+Started GET "/api/v1/article_preview" for ::1 at 2023-08-23 23:03:57 +0900
+Processing by Api::V1::ArticlePreviewController#index as HTML
+Completed 500 Internal Server Error in 234ms (ActiveRecord: 26.7ms | Allocations: 5725)
+
+
+  
+Zeitwerk::NameError (expected file /Users/yasu_ohki/git/wonderful_editor/app/serializers/api/v1/user_serializer.rb to define constant Api::V1::UserSerializer, but didn't
+
+      raise Zeitwerk::NameError.new(msg, cref.last)
+      ^^^^^):
+  
+app/serializers/api/v1/article_preview_serializer.rb:4:in `<class:ArticlePreviewSerializer>'
+app/serializers/api/v1/article_preview_serializer.rb:1:in `<main>'
+app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+Started GET "/api/v1/article_preview" for ::1 at 2023-08-23 23:03:58 +0900
+Processing by Api::V1::ArticlePreviewController#index as HTML
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.0ms | Allocations: 3122)
+
+
+  
+NameError (uninitialized constant Api::V1::UserSerializer
+
+  belongs_to :user, serializer: Api::V1::UserSerializer
+                                       ^^^^^^^^^^^^^^^^):
+  
+app/serializers/api/v1/article_preview_serializer.rb:4:in `<class:ArticlePreviewSerializer>'
+app/serializers/api/v1/article_preview_serializer.rb:1:in `<main>'
+app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+Started GET "/api/v1/article_preview" for ::1 at 2023-08-23 23:07:09 +0900
+Processing by Api::V1::ArticlePreviewController#index as HTML
+  [1m[36mArticle Load (31.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."updated_at" DESC[0m
+  ↳ app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/article_preview_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (211.14ms)
+Completed 200 OK in 433ms (Views: 222.5ms | ActiveRecord: 162.0ms | Allocations: 28725)
+
+
