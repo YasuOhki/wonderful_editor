@@ -20,7 +20,8 @@
 #
 FactoryBot.define do
   factory :article do
-    title { Faker::Book.title }
-    body { Faker::String.random(length: 12) }
+    title { Faker::Games::Pokemon.name }
+    body { Faker::Games::Pokemon.move }
+    #user_id { 0 }   # 初期値、実際にはテスト中に作成したuserのidを格納して使用する
   end
 end

@@ -1,6 +1,6 @@
 module Api::V1
   class ArticlesController < BaseApiController
-    before_action :article_params, only: %i[ create ]
+    #before_action :article_params, only: %i[ create ]
     # GET /article/1
     def show
       article = Article.find(params[:id])
@@ -9,9 +9,10 @@ module Api::V1
 
     # POST /article
     def create
+      @current_user = User.find(params[:article][:user_id])
       article = @current_user.articles.new(article_params)
 
-      if article.save    # 「!」をつけるとelseには入らないので注意
+      if article.save
         render json: article, serializer: Api::V1::ArticleCreateSerializer
       else
         render json: article.errors, status: 422

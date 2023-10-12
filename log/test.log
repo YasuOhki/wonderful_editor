@@ -7225,3 +7225,1285 @@ Processing by Api::V1::ArticlesController#show as HTML
   [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
 Completed 404 Not Found in 3ms (ActiveRecord: 2.0ms | Allocations: 441)
   [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (11.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (17.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ali.tremblay@lowe.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "木村 綾乃"], ["LIMIT", 1]]
+  [1m[36mUser Create (21.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ali.tremblay@lowe.example"], ["encrypted_password", "$2a$12$kthPkdclpObVh4cieCo9O.h/jIPtOQYcN0UJveMtjpMnoPcPRxpv6"], ["name", "木村 綾乃"], ["email", "ali.tremblay@lowe.example"], ["created_at", "2023-10-01 14:56:12.085917"], ["updated_at", "2023-10-01 14:56:12.085917"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lorette_labadie@bernhard-dare.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "原 彩"], ["LIMIT", 1]]
+  [1m[36mUser Create (11.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lorette_labadie@bernhard-dare.test"], ["encrypted_password", "$2a$12$UJcK.FTZHcpRIjvk5FYCD.kw1cgWRGIr5r8go5HpjohsqtgakkyYK"], ["name", "原 彩"], ["email", "lorette_labadie@bernhard-dare.test"], ["created_at", "2023-10-01 14:56:46.037061"], ["updated_at", "2023-10-01 14:56:46.037061"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lucilla@bode.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中川 優斗"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lucilla@bode.example"], ["encrypted_password", "$2a$12$Ah5UrGWsHuttcRY/Mc5WlOU09XF.N3FOt.LgIT4lUcaK3zGg/6OA."], ["name", "中川 優斗"], ["email", "lucilla@bode.example"], ["created_at", "2023-10-01 14:58:06.249223"], ["updated_at", "2023-10-01 14:58:06.249223"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "dong@koelpin.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "千葉 美優"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "dong@koelpin.example"], ["encrypted_password", "$2a$12$lqeDgRYtgweuqnSC2KSeMuo7SvrKFZkuIoAal5ZIbTlN0DDc2rCym"], ["name", "千葉 美優"], ["email", "dong@koelpin.example"], ["created_at", "2023-10-01 14:58:40.682830"], ["updated_at", "2023-10-01 14:58:40.682830"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "veronica@pfeffer.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "森 裕子"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "veronica@pfeffer.test"], ["encrypted_password", "$2a$12$HjEgcxcLOykpjZbSMMnOP.pOZm2icj9RgJz22pFF7O.7LUTQ0bP.u"], ["name", "森 裕子"], ["email", "veronica@pfeffer.test"], ["created_at", "2023-10-01 14:59:33.330027"], ["updated_at", "2023-10-01 14:59:33.330027"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "russ.huel@schmitt-greenholt.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐野 恵"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "russ.huel@schmitt-greenholt.example"], ["encrypted_password", "$2a$12$wW7LN0GmvzQCHgsNCIXeieLkbA0fYe2BSNs.IoYVnmdxnTzFewnpK"], ["name", "佐野 恵"], ["email", "russ.huel@schmitt-greenholt.example"], ["created_at", "2023-10-01 15:02:02.196752"], ["updated_at", "2023-10-01 15:02:02.196752"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (7.9ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (23.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-01 15:02:02.253071"], ["updated_at", "2023-10-01 15:02:02.253071"], ["user_id", 287]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "adolph.ullrich@turcotte.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐藤 美緒"], ["LIMIT", 1]]
+  [1m[36mUser Create (7.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "adolph.ullrich@turcotte.example"], ["encrypted_password", "$2a$12$o410/ci7LU0Hj.3hvo88pe.bAV31OCY1kHZqzBHQ0VIa7nLWrdF3S"], ["name", "佐藤 美緒"], ["email", "adolph.ullrich@turcotte.example"], ["created_at", "2023-10-01 15:02:49.638772"], ["updated_at", "2023-10-01 15:02:49.638772"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-01 15:02:49.689662"], ["updated_at", "2023-10-01 15:02:49.689662"], ["user_id", 288]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ozzie.schinner@ortiz.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "近藤 千尋"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ozzie.schinner@ortiz.test"], ["encrypted_password", "$2a$12$rGOge7OGt4KPZdfhUpqjkecbLutHUQUAJxpbTjMF1jdt.Lgqh6vay"], ["name", "近藤 千尋"], ["email", "ozzie.schinner@ortiz.test"], ["created_at", "2023-10-01 15:14:26.442186"], ["updated_at", "2023-10-01 15:14:26.442186"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-01 15:14:26.480376"], ["updated_at", "2023-10-01 15:14:26.480376"], ["user_id", 289]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 00:14:26 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"やまなし", "body"=>"\u{12F13}涣\u{63DE0}\u000E밦 %K\u{574F6}&A%"}}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "やまなし"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "やまなし"], ["body", "\u{12F13}涣\u{63DE0}\u000E밦 %K\u{574F6}&A%"], ["created_at", "2023-10-01 15:14:26.584251"], ["updated_at", "2023-10-01 15:14:26.584251"], ["user_id", 289]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (3.29ms)
+Completed 200 OK in 67ms (Views: 12.4ms | ActiveRecord: 15.3ms | Allocations: 5680)
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "darcel_kling@labadie.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山本 楓"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "darcel_kling@labadie.example"], ["encrypted_password", "$2a$12$r6woX3BDxZ.D.YhgDKX4dOFsPL6kqiJW4Cix8.cu2u673Cz2d4wEu"], ["name", "山本 楓"], ["email", "darcel_kling@labadie.example"], ["created_at", "2023-10-01 15:14:50.870212"], ["updated_at", "2023-10-01 15:14:50.870212"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-01 15:14:50.905180"], ["updated_at", "2023-10-01 15:14:50.905180"], ["user_id", 290]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 00:14:50 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"智恵子抄", "body"=>"N;\u0001+\u{65C9A}1I!Q%ിc"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "智恵子抄"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "智恵子抄"], ["body", "N;\u0001+\u{65C9A}1I!Q%ിc"], ["created_at", "2023-10-01 15:14:50.977956"], ["updated_at", "2023-10-01 15:14:50.977956"], ["user_id", 290]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (1.44ms)
+Completed 200 OK in 41ms (Views: 8.2ms | ActiveRecord: 11.2ms | Allocations: 5674)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jenell@romaguera.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "森 桜"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jenell@romaguera.test"], ["encrypted_password", "$2a$12$telSHA8YDdWyVxokzwHNd.HaVDz3XeP04T8Sz8sJ0kOrKtxnF0Yfm"], ["name", "森 桜"], ["email", "jenell@romaguera.test"], ["created_at", "2023-10-02 14:06:39.032328"], ["updated_at", "2023-10-02 14:06:39.032328"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "camille.buckridge@schulist.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "松田 愛"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "camille.buckridge@schulist.test"], ["encrypted_password", "$2a$12$LZL263a70KKcRGNt6DqiROb1TUpFUfCLxYxHsKWvly6JJfdpKvhjW"], ["name", "松田 愛"], ["email", "camille.buckridge@schulist.test"], ["created_at", "2023-10-02 14:06:39.311050"], ["updated_at", "2023-10-02 14:06:39.311050"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "shirlee.johns@cummerata-predovic.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "小島 一郎"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "shirlee.johns@cummerata-predovic.example"], ["encrypted_password", "$2a$12$YphLq3Md5r6j.1XOT4WoOOnZfjuO9fGtpRHfc6G8ibwXlenI82bjS"], ["name", "小島 一郎"], ["email", "shirlee.johns@cummerata-predovic.example"], ["created_at", "2023-10-02 14:07:05.315731"], ["updated_at", "2023-10-02 14:07:05.315731"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-02 14:08:00.416613"], ["updated_at", "2023-10-02 14:08:00.416613"], ["user_id", 293]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:08:25 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"国防と科学", "body"=>"\u{A2CA2}\u{9FA9A}*\e髵濶6\b\"\u{AE9A7}\u{6FF21}⊣"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "国防と科学"], ["LIMIT", 1]]
+  [1m[36mArticle Create (6.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "国防と科学"], ["body", "\u{A2CA2}\u{9FA9A}*\e髵濶6\b\"\u{AE9A7}\u{6FF21}⊣"], ["created_at", "2023-10-02 14:08:25.577657"], ["updated_at", "2023-10-02 14:08:25.577657"], ["user_id", 291]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (13.44ms)
+Completed 200 OK in 128ms (Views: 25.1ms | ActiveRecord: 17.4ms | Allocations: 365378)
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:30:05 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"風立ちぬ", "body"=>" N䭴 \u{8AAF8}W Q8 V潜"}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 32.0ms | Allocations: 3086)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "junita@hahn.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "三浦 優衣"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "junita@hahn.test"], ["encrypted_password", "$2a$12$Pkj9ljMnq7W./nrKd5RgNOV2fmKGlXXwdwOTjFg7AK9EnP/KX/jqi"], ["name", "三浦 優衣"], ["email", "junita@hahn.test"], ["created_at", "2023-10-02 14:32:09.577698"], ["updated_at", "2023-10-02 14:32:09.577698"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:32:09 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"クリスマス・カロル", "body"=>"4󶝄M󳊖\u{3E5AE}] T\u{8C361}MX "}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "クリスマス・カロル"], ["LIMIT", 1]]
+  [1m[36mArticle Create (7.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "クリスマス・カロル"], ["body", "4󶝄M󳊖\u{3E5AE}] T\u{8C361}MX "], ["created_at", "2023-10-02 14:32:09.699462"], ["updated_at", "2023-10-02 14:32:09.699462"], ["user_id", 294]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (3.14ms)
+Completed 200 OK in 93ms (Views: 11.4ms | ActiveRecord: 27.1ms | Allocations: 10826)
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "queen@rosenbaum-mccullough.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中山 愛子"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "queen@rosenbaum-mccullough.test"], ["encrypted_password", "$2a$12$TObS5oTKzYyjwO5zqhdG9.Z3Hc3KNu.kDXELyZucoxceqMO1ZHAqq"], ["name", "中山 愛子"], ["email", "queen@rosenbaum-mccullough.test"], ["created_at", "2023-10-02 14:38:37.309476"], ["updated_at", "2023-10-02 14:38:37.309476"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:38:37 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"羅生門", "body"=>"\u{C67C5} ᖲ̊L\u{91BF2}􆚎 䗎⫸貚;"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "羅生門"], ["LIMIT", 1]]
+  [1m[36mArticle Create (4.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "羅生門"], ["body", "\u{C67C5} ᖲ̊L\u{91BF2}􆚎 䗎⫸貚;"], ["created_at", "2023-10-02 14:38:37.455633"], ["updated_at", "2023-10-02 14:38:37.455633"], ["user_id", 295]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (2.26ms)
+Completed 200 OK in 86ms (Views: 7.5ms | ActiveRecord: 33.0ms | Allocations: 10826)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "keisha@wehner.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "大塚 響"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "keisha@wehner.example"], ["encrypted_password", "$2a$12$CxkgpvqpyEioluoZGys3BuhThfp5pZWBAQsPZJYJAS5fL4.y/KnPS"], ["name", "大塚 響"], ["email", "keisha@wehner.example"], ["created_at", "2023-10-02 14:38:56.413655"], ["updated_at", "2023-10-02 14:38:56.413655"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:38:56 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"蜘蛛の糸", "body"=>"9$\u{D2912}`킴! \u0003S\u{95940} 绾"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "蜘蛛の糸"], ["LIMIT", 1]]
+  [1m[36mArticle Create (4.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "蜘蛛の糸"], ["body", "9$\u{D2912}`킴! \u0003S\u{95940} 绾"], ["created_at", "2023-10-02 14:38:56.527019"], ["updated_at", "2023-10-02 14:38:56.527019"], ["user_id", 296]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (1.47ms)
+Completed 200 OK in 68ms (Views: 6.3ms | ActiveRecord: 19.2ms | Allocations: 10824)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "dayna.bergstrom@stiedemann.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "坂本 優奈"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "dayna.bergstrom@stiedemann.test"], ["encrypted_password", "$2a$12$5rNlodP/WOsQps3J3e1.5./l3r4GddaHG1g3x0wsFWtIE.8plLOgu"], ["name", "坂本 優奈"], ["email", "dayna.bergstrom@stiedemann.test"], ["created_at", "2023-10-02 14:40:02.489847"], ["updated_at", "2023-10-02 14:40:02.489847"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:40:02 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"藪の中", "body"=>"󷷳\u{B8FF3} 煠\u{ACB00}\"\u{8DE02} ᠅􉕦\u{15B35}V"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "藪の中"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "藪の中"], ["body", "󷷳\u{B8FF3} 煠\u{ACB00}\"\u{8DE02} ᠅􉕦\u{15B35}V"], ["created_at", "2023-10-02 14:40:02.608349"], ["updated_at", "2023-10-02 14:40:02.608349"], ["user_id", 297]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (1.62ms)
+Completed 200 OK in 61ms (Views: 9.0ms | ActiveRecord: 12.5ms | Allocations: 7802)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ron@botsford-heathcote.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中川 太一"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ron@botsford-heathcote.example"], ["encrypted_password", "$2a$12$O02fSJLIOCTAQmFD/0TaWeCRiuiP7M6jx2VdKk3.UFnYf2qe.bDzq"], ["name", "中川 太一"], ["email", "ron@botsford-heathcote.example"], ["created_at", "2023-10-02 14:41:45.740092"], ["updated_at", "2023-10-02 14:41:45.740092"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-02 23:41:45 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"風立ちぬ", "body"=>"k ឯH쬖뛧沫 8\u0017⎍V"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "風立ちぬ"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "風立ちぬ"], ["body", "k ឯH쬖뛧沫 8\u0017⎍V"], ["created_at", "2023-10-02 14:41:45.882411"], ["updated_at", "2023-10-02 14:41:45.882411"], ["user_id", 298]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (2.7ms)
+Completed 200 OK in 82ms (Views: 10.5ms | ActiveRecord: 20.9ms | Allocations: 10826)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:25:55 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"銀河鉄道の夜", "body"=>"\u000E)ẛ齏ශG觧Sj (0"}}
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:28:20 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"クリスマス・カロル", "body"=>"X􉙴碵\f\u{8F7CB} \r\"  \u{3F34A}⧲"}}
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:28:54 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"門", "body"=>"\u0010鮁\u{C9C5C} \u{9A50F} \u{D2AF6}S󾈩㏄\"\r"}}
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:43:21 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"智恵子抄", "body"=>"\aU  \u{EBA16} *  d H"}}
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 27427ms (ActiveRecord: 35.1ms | Allocations: 202856)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:44:13 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"道鏡", "body"=>"D$𘋳 6훦\u0017\v走蕥 􏘋"}}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "stephen@schimmel.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "酒井 綾乃"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "stephen@schimmel.test"], ["encrypted_password", "$2a$12$jCuguLE/Kuq/KD/peO2VhO3pWNfDE6SVLGkRC4Z4ECYmWK.IcZIIC"], ["name", "酒井 綾乃"], ["email", "stephen@schimmel.test"], ["created_at", "2023-10-03 14:45:28.433275"], ["updated_at", "2023-10-03 14:45:28.433275"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-03 23:45:28 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"注文の多い料理店", "body"=>"\u{EB8DB}G\u0A53Z P\n E\u{7DF2A}L7"}}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (6.6ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "注文の多い料理店"], ["LIMIT", 1]]
+  [1m[36mArticle Create (4.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "注文の多い料理店"], ["body", "\u{EB8DB}G\u0A53Z P\n E\u{7DF2A}L7"], ["created_at", "2023-10-03 14:45:42.302659"], ["updated_at", "2023-10-03 14:45:42.302659"], ["user_id", 299]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (3.81ms)
+Completed 200 OK in 13846ms (Views: 13.7ms | ActiveRecord: 40.0ms | Allocations: 35452)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (5.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "carissa@bergstrom-labadie.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "藤井 翔太"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "carissa@bergstrom-labadie.example"], ["encrypted_password", "$2a$12$Hp4gj6f/lqNqngLoSsAmCOHGcAkPquSc/7CU9.pQFddgpuXoJwoR6"], ["name", "藤井 翔太"], ["email", "carissa@bergstrom-labadie.example"], ["created_at", "2023-10-04 13:41:54.545536"], ["updated_at", "2023-10-04 13:41:54.545536"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "hoyt.stamm@greenholt.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "阿部 千尋"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "hoyt.stamm@greenholt.test"], ["encrypted_password", "$2a$12$ssaOwYLKZygL4lqQ/5q/n.36F7zW3HruoVXUrXcxGN119myb2LKNu"], ["name", "阿部 千尋"], ["email", "hoyt.stamm@greenholt.test"], ["created_at", "2023-10-04 13:42:20.866436"], ["updated_at", "2023-10-04 13:42:20.866436"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 22:42:20 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"河童", "body"=>"\u{6BFCD}k],\u001F䲮\u0019L\u177A\u{C1671}痰W"}}
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "suzi@gorczany.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "大野 さくら"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "suzi@gorczany.example"], ["encrypted_password", "$2a$12$BeiCau9Vut8JQRZSSKRe6en6InULJR6E7pwxT0FZ45.UD1WQ286ja"], ["name", "大野 さくら"], ["email", "suzi@gorczany.example"], ["created_at", "2023-10-04 13:46:46.225829"], ["updated_at", "2023-10-04 13:46:46.225829"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "arianna.stark@schumm-spencer.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (5.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "松井 美羽"], ["LIMIT", 1]]
+  [1m[36mUser Create (7.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "arianna.stark@schumm-spencer.test"], ["encrypted_password", "$2a$12$t4EOuXEcO0uWetnWh6u/FuG8pPzgbFD4cM7XN2oScGMQmlkuUBleG"], ["name", "松井 美羽"], ["email", "arianna.stark@schumm-spencer.test"], ["created_at", "2023-10-04 13:53:18.453025"], ["updated_at", "2023-10-04 13:53:18.453025"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (5.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-04 13:53:18.515968"], ["updated_at", "2023-10-04 13:53:18.515968"], ["user_id", 303]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ligia_bernhard@larkin-kertzmann.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "竹内 悠真"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ligia_bernhard@larkin-kertzmann.test"], ["encrypted_password", "$2a$12$1jqG0dMyOlIvlb9AiI6Apu59l2i8Klc5D2kb5tA.LmZjfOkk9nW7q"], ["name", "竹内 悠真"], ["email", "ligia_bernhard@larkin-kertzmann.test"], ["created_at", "2023-10-04 13:53:36.517459"], ["updated_at", "2023-10-04 13:53:36.517459"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test_mock"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test_mock"], ["body", "test_mock_body"], ["created_at", "2023-10-04 13:53:36.549669"], ["updated_at", "2023-10-04 13:53:36.549669"], ["user_id", 304]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 304]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "vern@romaguera.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "高木 凛"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "vern@romaguera.test"], ["encrypted_password", "$2a$12$h9SwHWyLy0IeftX2Vf7zQ.FDFRSkoWoCBMVeDf7VLvdvGhAcD94yu"], ["name", "高木 凛"], ["email", "vern@romaguera.test"], ["created_at", "2023-10-04 14:03:49.358946"], ["updated_at", "2023-10-04 14:03:49.358946"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:03:49 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"私の個人主義", "body"=>"5 \u{5DF26}\u{539FC}\u{39B1C}\u{6766D}\u{9265F}\u{662DD}/涊o\u{96C21}"}}
+Completed 500 Internal Server Error in 21599ms (ActiveRecord: 0.0ms | Allocations: 12503)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ma.bartell@mertz.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "谷口 太郎"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ma.bartell@mertz.test"], ["encrypted_password", "$2a$12$cKPYj2dz3VxPL3x9oUcgV.uOjUUZbtbbQIcV3epp4JWGcbOrtpGi6"], ["name", "谷口 太郎"], ["email", "ma.bartell@mertz.test"], ["created_at", "2023-10-04 14:05:07.133510"], ["updated_at", "2023-10-04 14:05:07.133510"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:05:21 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"土佐日記", "body"=>"\u001C\u0003䗋K\u{CA8C7}ꍡ󴤂\u{75450}만쬬\u{ADC8D}>"}}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "cristobal@morissette.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "三浦 隼人"], ["LIMIT", 1]]
+  [1m[36mUser Create (12.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "cristobal@morissette.example"], ["encrypted_password", "$2a$12$ly1IfnYSv1njun191lw2beaT0MTYZuHXq6rWuSKOHCJm3Z.3fPWJW"], ["name", "三浦 隼人"], ["email", "cristobal@morissette.example"], ["created_at", "2023-10-04 14:15:23.094465"], ["updated_at", "2023-10-04 14:15:23.094465"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "christinia@volkman.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "杉山 樹"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "christinia@volkman.example"], ["encrypted_password", "$2a$12$7.llFtCqDf1T5ecX.s4NiOP/mG53TkZs67rzjHA9BhpGBPZKHdrQi"], ["name", "杉山 樹"], ["email", "christinia@volkman.example"], ["created_at", "2023-10-04 14:16:30.451811"], ["updated_at", "2023-10-04 14:16:30.451811"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:17:16 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"白雪姫", "body"=>"  \u{EF451}Ƌ<텞Q쁗𝥳 2똿"}}
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "madalene@emard.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "石田 悠太"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "madalene@emard.test"], ["encrypted_password", "$2a$12$yct/LHOl2yBbXlvOgiLA0ul7npEfkFScHqSx8UJCBzTwyeXb/DqAa"], ["name", "石田 悠太"], ["email", "madalene@emard.test"], ["created_at", "2023-10-04 14:21:15.020869"], ["updated_at", "2023-10-04 14:21:15.020869"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "shirlee@muller.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "宮崎 大翔"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "shirlee@muller.test"], ["encrypted_password", "$2a$12$V2R7kYYHdnNSUtMKfNtezeyzeJHeVI7TghK72bEqVmvHL/kni6gcG"], ["name", "宮崎 大翔"], ["email", "shirlee@muller.test"], ["created_at", "2023-10-04 14:39:38.032429"], ["updated_at", "2023-10-04 14:39:38.032429"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "stephany_collins@ward.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "和田 陽斗"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "stephany_collins@ward.example"], ["encrypted_password", "$2a$12$e.UvKdq0KS.CGh53VqiP3.oeHHHkWc5G4tKe5CwW3uWC7P7Qnmi3O"], ["name", "和田 陽斗"], ["email", "stephany_collins@ward.example"], ["created_at", "2023-10-04 14:41:33.831452"], ["updated_at", "2023-10-04 14:41:33.831452"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:41:41 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"title"=>"test", "body"=>"test_body", "user_id"=>"311"}
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.0ms | Allocations: 2084)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "carri.hirthe@gutkowski.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "杉山 健太"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "carri.hirthe@gutkowski.test"], ["encrypted_password", "$2a$12$gexezCt5uH3704PaTjCj9On0IbwSIeIboN8b4aO5iKHfvAB76ZqqG"], ["name", "杉山 健太"], ["email", "carri.hirthe@gutkowski.test"], ["created_at", "2023-10-04 14:51:56.886063"], ["updated_at", "2023-10-04 14:51:56.886063"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:52:07 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"title"=>"test", "body"=>"test_body", "user_id"=>"312"}
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms | Allocations: 2084)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "margy.klein@stanton.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "野村 亮"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "margy.klein@stanton.example"], ["encrypted_password", "$2a$12$6j3iDlAy.2R/hiuEfPppvuy.Ud84U7HQNiRYu0/iWpS.3wpbf54VO"], ["name", "野村 亮"], ["email", "margy.klein@stanton.example"], ["created_at", "2023-10-04 14:53:05.576429"], ["updated_at", "2023-10-04 14:53:05.576429"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-04 23:53:08 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"化学調味料", "body"=>"㌯\u0003/N;憀훁\u0014z\u{79788}Yp"}, "title"=>"test", "body"=>"test_body", "user_id"=>"313"}
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lovetta.harber@grady-franecki.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐野 碧"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lovetta.harber@grady-franecki.test"], ["encrypted_password", "$2a$12$G5SRUwO61gHu5IqNcvmp0ON4l91qevawt7a1x6I4zN8uzg3mZWBTi"], ["name", "佐野 碧"], ["email", "lovetta.harber@grady-franecki.test"], ["created_at", "2023-10-04 14:54:03.588603"], ["updated_at", "2023-10-04 14:54:03.588603"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-06 23:26:17 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+Completed 400 Bad Request in 30ms (ActiveRecord: 0.0ms | Allocations: 2094)
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-06 23:26:38 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+Completed 400 Bad Request in 8ms (ActiveRecord: 0.0ms | Allocations: 599)
+  [1m[36mTRANSACTION (85.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "rocco@streich.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐野 未来"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "rocco@streich.example"], ["encrypted_password", "$2a$12$pf4bGY.N0CyXnBATh.H47e0lfJn./sHgRGEZIEPk0.xwA2B8a2tHS"], ["name", "佐野 未来"], ["email", "rocco@streich.example"], ["created_at", "2023-10-06 14:27:58.359680"], ["updated_at", "2023-10-06 14:27:58.359680"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-06 23:28:26 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms | Allocations: 2074)
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jefferson_schneider@legros.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "石井 太一"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jefferson_schneider@legros.example"], ["encrypted_password", "$2a$12$Wke2DkDAv01bsxI5gFPKbODw6e.QfLGm96hn6l3SkWj7/tz/aWttu"], ["name", "石井 太一"], ["email", "jefferson_schneider@legros.example"], ["created_at", "2023-10-06 14:28:57.203821"], ["updated_at", "2023-10-06 14:28:57.203821"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-06 23:40:50 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "richie.schuppe@wunsch.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "菊地 悠真"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "richie.schuppe@wunsch.example"], ["encrypted_password", "$2a$12$KHtGkQKfLuOlhPB8EBueO.13bZy7d5xNyqzc9gfMeBuH.Ao6vienW"], ["name", "菊地 悠真"], ["email", "richie.schuppe@wunsch.example"], ["created_at", "2023-10-06 14:51:19.466952"], ["updated_at", "2023-10-06 14:51:19.466952"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ashley.oberbrunner@white.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "石田 悠斗"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ashley.oberbrunner@white.test"], ["encrypted_password", "$2a$12$mYfScJAjpNT2LvcmdnUFWO0QcQrhmyPCmSH5y67Rn/72JC2amTAPO"], ["name", "石田 悠斗"], ["email", "ashley.oberbrunner@white.test"], ["created_at", "2023-10-06 14:54:00.944572"], ["updated_at", "2023-10-06 14:54:00.944572"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "shelton_leannon@willms.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐々木 莉子"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "shelton_leannon@willms.example"], ["encrypted_password", "$2a$12$VWxIhFY39q09.ghQ/HNb2e4eZLwTaqpuq63ZOdE6ueGRBomIS6l66"], ["name", "佐々木 莉子"], ["email", "shelton_leannon@willms.example"], ["created_at", "2023-10-06 14:56:19.373284"], ["updated_at", "2023-10-06 14:56:19.373284"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "wanda@pollich-zemlak.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "藤本 優衣"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "wanda@pollich-zemlak.example"], ["encrypted_password", "$2a$12$KLARdqkMnBNIi7qCUU6GceFHG5.RYfILvGM5v3mzWdjUrOe6aIMSm"], ["name", "藤本 優衣"], ["email", "wanda@pollich-zemlak.example"], ["created_at", "2023-10-06 15:16:23.316765"], ["updated_at", "2023-10-06 15:16:23.316765"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jonnie_johns@schmidt.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中山 智子"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jonnie_johns@schmidt.example"], ["encrypted_password", "$2a$12$rxlPP54U.LsPrZpY.AmiLeKQzXFfbjk.TlohIdcOBGr0dD56CleCO"], ["name", "中山 智子"], ["email", "jonnie_johns@schmidt.example"], ["created_at", "2023-10-06 15:18:16.691919"], ["updated_at", "2023-10-06 15:18:16.691919"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "herschel@rosenbaum.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "坂本 美緒"], ["LIMIT", 1]]
+  [1m[36mUser Create (13.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "herschel@rosenbaum.example"], ["encrypted_password", "$2a$12$.8.4JdTcGtIWLcXiqer5FullxBAMuFAuiwCwuYJgqflrsr75WuB3y"], ["name", "坂本 美緒"], ["email", "herschel@rosenbaum.example"], ["created_at", "2023-10-07 11:19:58.379584"], ["updated_at", "2023-10-07 11:19:58.379584"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:20:56 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>"test"}
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jonathan.stracke@parisian-torp.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "小島 拓海"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jonathan.stracke@parisian-torp.example"], ["encrypted_password", "$2a$12$9Q4EoQPvq5Wjo04QliAv5exAjiYjTxO4nd9z1JM1b9njWGxIruk6q"], ["name", "小島 拓海"], ["email", "jonathan.stracke@parisian-torp.example"], ["created_at", "2023-10-07 11:21:41.760825"], ["updated_at", "2023-10-07 11:21:41.760825"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:21:58 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"土佐日記", "body"=>"㗬󴐍󼯓\u0014𫱋뽇෧1忰袑斵𱋡"}}
+Completed 500 Internal Server Error in 78536ms (ActiveRecord: 0.0ms | Allocations: 35532)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ione@jacobson.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中川 駿"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ione@jacobson.example"], ["encrypted_password", "$2a$12$IteZjkhuUw79E.1MMIxIQ.Lv7JYfOPV42miTxfwj/BVSTX9SWebcK"], ["name", "中川 駿"], ["email", "ione@jacobson.example"], ["created_at", "2023-10-07 11:24:30.621676"], ["updated_at", "2023-10-07 11:24:30.621676"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "walton_wuckert@harber.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "遠藤 奈々"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "walton_wuckert@harber.test"], ["encrypted_password", "$2a$12$A3fItJBKGgJm8glsQXI5kemXgj0BQmw.ZEDpVTezpW.iPBg9dOS4W"], ["name", "遠藤 奈々"], ["email", "walton_wuckert@harber.test"], ["created_at", "2023-10-07 11:25:26.642315"], ["updated_at", "2023-10-07 11:25:26.642315"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "napoleon.mohr@terry.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "菅原 凛"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "napoleon.mohr@terry.test"], ["encrypted_password", "$2a$12$D9ZWq7txl34nwZPmCzpJmuqTd5fgQxFvP.dmsjKJCwimZZOQ7wtii"], ["name", "菅原 凛"], ["email", "napoleon.mohr@terry.test"], ["created_at", "2023-10-07 11:26:49.284806"], ["updated_at", "2023-10-07 11:26:49.284806"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "marni@stamm.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "鈴木 美桜"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "marni@stamm.example"], ["encrypted_password", "$2a$12$ezJ4LwBH8f83snHJgedA3uOVgPDVxwCC0UhEjTjnf/ixPaDa82CHS"], ["name", "鈴木 美桜"], ["email", "marni@stamm.example"], ["created_at", "2023-10-07 11:28:28.446480"], ["updated_at", "2023-10-07 11:28:28.446480"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:29:53 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"三四郎", "body"=>" \u{62342} <\u0002 \r\u{EC9EA}\u{372E5}\u{66446}&壾", "user_id"=>"327"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (2.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 327]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "三四郎"], ["LIMIT", 1]]
+  [1m[36mArticle Create (6.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "三四郎"], ["body", " \u{62342} <\u0002 \r\u{EC9EA}\u{372E5}\u{66446}&壾"], ["created_at", "2023-10-07 11:30:51.552066"], ["updated_at", "2023-10-07 11:30:51.552066"], ["user_id", 327]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (4.01ms)
+Completed 200 OK in 57227ms (Views: 14.2ms | ActiveRecord: 44.8ms | Allocations: 50463)
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jeanie@orn-frami.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "高木 一輝"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jeanie@orn-frami.example"], ["encrypted_password", "$2a$12$Csuj3wNYFispjD/3rkCuL.NjdVwGA/SJZPBR6Ht.IDrRg5ZdxAK.K"], ["name", "高木 一輝"], ["email", "jeanie@orn-frami.example"], ["created_at", "2023-10-07 11:54:28.514659"], ["updated_at", "2023-10-07 11:54:28.514659"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:54:51 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"白痴", "body"=>"n䕐r=]\u{948E1}篽볉\u000E\u{9B9E5}\u{11275}亴", "user_id"=>"328"}}
+Completed 500 Internal Server Error in 15412ms (ActiveRecord: 0.0ms | Allocations: 10554)
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "shelton.schneider@dicki.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "高田 優奈"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "shelton.schneider@dicki.test"], ["encrypted_password", "$2a$12$Tdoem61Pn7w.InXYjgLYlerPyE5vCpSFj7nXmbKbHzSBqJOXz7xki"], ["name", "高田 優奈"], ["email", "shelton.schneider@dicki.test"], ["created_at", "2023-10-07 11:55:29.969696"], ["updated_at", "2023-10-07 11:55:29.969696"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:55:32 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"管見芭蕉翁", "body"=>"` チ@G  N\u{579B6}I61", "user_id"=>"329"}}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "joe@treutel.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山田 美優"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "joe@treutel.test"], ["encrypted_password", "$2a$12$ZtbSiA4r500UQKF2t/8b7ekXjIgPTkH5CJ9R6DXs.KI1CiqDGPctG"], ["name", "山田 美優"], ["email", "joe@treutel.test"], ["created_at", "2023-10-07 11:56:04.980273"], ["updated_at", "2023-10-07 11:56:04.980273"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:56:07 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"坊っちゃん", "body"=>"ᤘ󲣠\u0001S𰔼  󲛆䷙R+0", "user_id"=>"330"}}
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ahmad_hegmann@homenick.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "高田 碧"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ahmad_hegmann@homenick.example"], ["encrypted_password", "$2a$12$uWJUTRcRCM5r/79mPHO53.RSEKJL077Vds4YZhI8qW/tpH3Yuabny"], ["name", "高田 碧"], ["email", "ahmad_hegmann@homenick.example"], ["created_at", "2023-10-07 11:56:44.055616"], ["updated_at", "2023-10-07 11:56:44.055616"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 20:56:52 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"『吾輩は猫である』上篇自序", "body"=>"꣬%\u{36A45}䀑x\u0EE1\u{B7F8C}V \u0011 舎", "user_id"=>"331"}}
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "donovan@green-fisher.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山本 さくら"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "donovan@green-fisher.test"], ["encrypted_password", "$2a$12$u2u9x1HvhfeAV1q2KW4V3upJCLzUFDdremW4dcI7bx4BDosmZ92lO"], ["name", "山本 さくら"], ["email", "donovan@green-fisher.test"], ["created_at", "2023-10-07 13:34:30.236946"], ["updated_at", "2023-10-07 13:34:30.236946"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "elisha.greenholt@veum-rodriguez.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "野村 裕子"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "elisha.greenholt@veum-rodriguez.test"], ["encrypted_password", "$2a$12$uOYPaPfW4tpfYTHwqGKfj..vZOsXb2PNgNO1L7YDPHfFym8GISpMK"], ["name", "野村 裕子"], ["email", "elisha.greenholt@veum-rodriguez.test"], ["created_at", "2023-10-07 13:34:48.248451"], ["updated_at", "2023-10-07 13:34:48.248451"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "darron@jones.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "渡辺 樹"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "darron@jones.example"], ["encrypted_password", "$2a$12$eW8QA4e27ocavINXLBeNguGi1u5h.0odbf8rXRzoWPZEDXYvMiFqK"], ["name", "渡辺 樹"], ["email", "darron@jones.example"], ["created_at", "2023-10-07 13:41:01.146614"], ["updated_at", "2023-10-07 13:41:01.146614"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 22:41:12 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"駈込み訴え", "body"=>"Nojiko", "user_id"=>"334"}}
+Completed 404 Not Found in 14803ms (ActiveRecord: 0.0ms | Allocations: 10856)
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ben@osinski-nader.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "森田 琴音"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ben@osinski-nader.example"], ["encrypted_password", "$2a$12$B04d7K6Qyf.2kIMpid5xmO4wzC.CpDwU43MorUCRnqU88IvG2Olyu"], ["name", "森田 琴音"], ["email", "ben@osinski-nader.example"], ["created_at", "2023-10-07 13:41:42.888161"], ["updated_at", "2023-10-07 13:41:42.888161"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 22:41:44 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"化学調味料", "body"=>"Sabo", "user_id"=>"335"}}
+Completed 404 Not Found in 31297ms (ActiveRecord: 0.0ms | Allocations: 14764)
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sam_bechtelar@donnelly.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "藤田 舞"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "sam_bechtelar@donnelly.example"], ["encrypted_password", "$2a$12$g5EpSx1A4LEz/1rtrwtL0OXzLnk8m6ro45kNW9/2gB6HuhJQdVV0O"], ["name", "藤田 舞"], ["email", "sam_bechtelar@donnelly.example"], ["created_at", "2023-10-07 13:43:04.478268"], ["updated_at", "2023-10-07 13:43:04.478268"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 22:43:07 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"遥かな旅", "body"=>"Hakuba", "user_id"=>"336"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (25.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 336], ["LIMIT", 1]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 336], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 386242ms (ActiveRecord: 60.9ms | Allocations: 42181)
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "hai_mclaughlin@hegmann.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "宮本 美穂"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "hai_mclaughlin@hegmann.test"], ["encrypted_password", "$2a$12$1eeDpLPqVlfrXwsV0gHXheRsKHPIZlxWPhV0MFLCobMFzQZvxFWEW"], ["name", "宮本 美穂"], ["email", "hai_mclaughlin@hegmann.test"], ["created_at", "2023-10-07 14:15:48.337245"], ["updated_at", "2023-10-07 14:15:48.337245"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-07 23:15:51 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"パノラマ島綺譚", "body"=>"Spandam", "user_id"=>"337"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 337], ["LIMIT", 1]]
+  [1m[36mArticle Load (6.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 337]]
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 337]]
+Completed 500 Internal Server Error in 86363611ms (ActiveRecord: 132.9ms | Allocations: 57025)
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jenni.schroeder@cassin.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "内田 亮太"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jenni.schroeder@cassin.example"], ["encrypted_password", "$2a$12$2MwbNMBxv9LqUc0UowA0y..tjCMWx13jU/PHJpF6cihbrhzQ13jYO"], ["name", "内田 亮太"], ["email", "jenni.schroeder@cassin.example"], ["created_at", "2023-10-08 14:16:11.425257"], ["updated_at", "2023-10-08 14:16:11.425257"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-08 23:16:17 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"桜の森の満開の下", "body"=>"Eustass Kid", "user_id"=>"338"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 338], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lavone@huels-stokes.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "工藤 悠真"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lavone@huels-stokes.test"], ["encrypted_password", "$2a$12$oQjOydMUHOEPVDtUl.FWJubug1JOhxYaa47pSpMqD34zrrKwT28Ge"], ["name", "工藤 悠真"], ["email", "lavone@huels-stokes.test"], ["created_at", "2023-10-08 14:18:56.062690"], ["updated_at", "2023-10-08 14:18:56.062690"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-08 23:18:58 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"学問のすすめ", "body"=>"Baby Five", "user_id"=>"339"}}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "charmaine_osinski@nader.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "村田 優那"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "charmaine_osinski@nader.example"], ["encrypted_password", "$2a$12$ED2jkNbqe6jvefpHawsF8eq.MH0AdZiIQHBIBub7kZHe52jJI4nJy"], ["name", "村田 優那"], ["email", "charmaine_osinski@nader.example"], ["created_at", "2023-10-08 14:22:50.381723"], ["updated_at", "2023-10-08 14:22:50.381723"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-08 23:22:50 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"赤毛連盟", "body"=>"Fullbody", "user_id"=>"340"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 340], ["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "tonita_bauch@turner-harber.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "太田 悠太"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tonita_bauch@turner-harber.test"], ["encrypted_password", "$2a$12$3EiiOya.PPW2s1hTKEEH5.Xqfy1iom2vC2TkDJ3rfVoHCtEquQTKm"], ["name", "太田 悠太"], ["email", "tonita_bauch@turner-harber.test"], ["created_at", "2023-10-08 14:29:15.128403"], ["updated_at", "2023-10-08 14:29:15.128403"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-08 23:29:15 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"いなか、の、じけん", "body"=>"Roronoa Zoro", "user_id"=>"341"}}
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "everette.ernser@blanda.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中村 大輝"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "everette.ernser@blanda.test"], ["encrypted_password", "$2a$12$ZbsemskyXhwaA4QaR.AF3ubAtSprYpRqNMG4Y.INHCaofzjO9uoO2"], ["name", "中村 大輝"], ["email", "everette.ernser@blanda.test"], ["created_at", "2023-10-08 14:50:09.992367"], ["updated_at", "2023-10-08 14:50:09.992367"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "brant@koepp.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "伊藤 大地"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "brant@koepp.test"], ["encrypted_password", "$2a$12$ne/1Z9prnE2fOLHJ8yn2tOFrhSi8xcxmQo24jlY4FDlsvG8YahpW."], ["name", "伊藤 大地"], ["email", "brant@koepp.test"], ["created_at", "2023-10-08 14:53:53.650866"], ["updated_at", "2023-10-08 14:53:53.650866"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "fidel.ebert@shanahan.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "谷口 さくら"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "fidel.ebert@shanahan.test"], ["encrypted_password", "$2a$12$CxU2vUDh5UJBS/QZaM7Mzu6OTHVYFO2sHqos15x2YpYwZnuvRYMO6"], ["name", "谷口 さくら"], ["email", "fidel.ebert@shanahan.test"], ["created_at", "2023-10-08 14:54:14.093397"], ["updated_at", "2023-10-08 14:54:14.093397"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lashonda@rippin.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "清水 楓"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lashonda@rippin.example"], ["encrypted_password", "$2a$12$xM7AVUu3z6ANhrp2OPN7eua6rcjZ50zoaRCoCW6EqImLo3MnGZ.oW"], ["name", "清水 楓"], ["email", "lashonda@rippin.example"], ["created_at", "2023-10-08 14:54:45.443672"], ["updated_at", "2023-10-08 14:54:45.443672"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "felicitas@satterfield.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "佐藤 空"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "felicitas@satterfield.example"], ["encrypted_password", "$2a$12$6CO4OMrauOF0RNrv2NeQyepUZ06uYJvhJze5rQMDimm5iW/xOrkJS"], ["name", "佐藤 空"], ["email", "felicitas@satterfield.example"], ["created_at", "2023-10-08 14:55:29.362750"], ["updated_at", "2023-10-08 14:55:29.362750"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-09 00:00:06 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"スリーパー", "body"=>"オウムがえし", "user_id"=>"346"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 346], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "clarence@lynch.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "河野 直樹"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "clarence@lynch.example"], ["encrypted_password", "$2a$12$ExtPXoNMOmLAewh9caq41O2iOezJIz5m/oEf8xHB1IfA7moQ8YEha"], ["name", "河野 直樹"], ["email", "clarence@lynch.example"], ["created_at", "2023-10-08 15:18:12.492066"], ["updated_at", "2023-10-08 15:18:12.492066"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "quentin.hegmann@schoen.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "小島 亮太"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "quentin.hegmann@schoen.test"], ["encrypted_password", "$2a$12$dO0GFCIP76XpHY4qMEVSE.oPm6GhzaJl/ovtC4cJHISEN7mpb6A/6"], ["name", "小島 亮太"], ["email", "quentin.hegmann@schoen.test"], ["created_at", "2023-10-08 15:25:09.199066"], ["updated_at", "2023-10-08 15:25:09.199066"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "audry@schinner-ritchie.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "小野 芽衣"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "audry@schinner-ritchie.test"], ["encrypted_password", "$2a$12$gVMhMaI7SPJc2.lyuR.6.eJ1PvEgl2Vw805aszkEThT9ZeKyvfMSO"], ["name", "小野 芽衣"], ["email", "audry@schinner-ritchie.test"], ["created_at", "2023-10-08 15:28:37.921709"], ["updated_at", "2023-10-08 15:28:37.921709"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-09 00:32:52 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ブースター", "body"=>"かぜおこし", "user_id"=>"349"}}
+Completed 500 Internal Server Error in 23379ms (ActiveRecord: 0.0ms | Allocations: 24496)
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "branda.donnelly@considine.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "藤田 太一"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "branda.donnelly@considine.example"], ["encrypted_password", "$2a$12$qRXFr5FdApFzbEK69WgCf.e.xSIZojJ95lxU3djQYMqSTmfIzA63u"], ["name", "藤田 太一"], ["email", "branda.donnelly@considine.example"], ["created_at", "2023-10-08 15:33:41.323269"], ["updated_at", "2023-10-08 15:33:41.323269"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-09 00:33:44 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ファイヤー", "body"=>"みだれひっかき", "user_id"=>"350"}}
+Completed 500 Internal Server Error in 51371ms (ActiveRecord: 0.0ms | Allocations: 21353)
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "andres@beer.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "前田 蓮"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "andres@beer.test"], ["encrypted_password", "$2a$12$n29n7UliCrDexH5XOpuWdOtCPmDqjloN0dxzMqEn6ZCdwkCLysXDG"], ["name", "前田 蓮"], ["email", "andres@beer.test"], ["created_at", "2023-10-08 15:35:06.759185"], ["updated_at", "2023-10-08 15:35:06.759185"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-09 00:35:09 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ヨーギラス", "body"=>"かたくなる", "user_id"=>"351"}}
+Completed 500 Internal Server Error in 11135ms (ActiveRecord: 10.6ms | Allocations: 21754)
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "tesha_mclaughlin@schmidt.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "森田 美咲"], ["LIMIT", 1]]
+  [1m[36mUser Create (13.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tesha_mclaughlin@schmidt.test"], ["encrypted_password", "$2a$12$dZWiAEjZtrNddIoFmKMHguiXLIiGBpgZxlrPZloG7H/Kx3O2i1Pbu"], ["name", "森田 美咲"], ["email", "tesha_mclaughlin@schmidt.test"], ["created_at", "2023-10-10 13:44:11.167095"], ["updated_at", "2023-10-10 13:44:11.167095"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 22:44:14 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"スターミー", "body"=>"でんきショック", "user_id"=>"352"}}
+Completed 500 Internal Server Error in 64546ms (ActiveRecord: 0.0ms | Allocations: 25116)
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (65.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "jame@schaefer-krajcik.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "松田 莉子"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "jame@schaefer-krajcik.test"], ["encrypted_password", "$2a$12$SticJXB.W0p.vhd0B.kJ7un7H4s5qQm76vvS11ofGpxE/RoYhOLlO"], ["name", "松田 莉子"], ["email", "jame@schaefer-krajcik.test"], ["created_at", "2023-10-10 13:48:43.078810"], ["updated_at", "2023-10-10 13:48:43.078810"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 22:48:45 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"カブト", "body"=>"ちいさくなる", "user_id"=>"353"}}
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "karl_bahringer@lehner.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "吉田 愛"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "karl_bahringer@lehner.test"], ["encrypted_password", "$2a$12$CD6uiugDGsRWzi1a/lv93ejcg/fXBcT8Kf62Xn/YIdHDcbnYNCoAm"], ["name", "吉田 愛"], ["email", "karl_bahringer@lehner.test"], ["created_at", "2023-10-10 14:09:20.577644"], ["updated_at", "2023-10-10 14:09:20.577644"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mArticle Load (3.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 354]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "annelle@doyle.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山崎 真央"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "annelle@doyle.test"], ["encrypted_password", "$2a$12$KPMjx307XR751nB2ldp1fevRVgjBEMCf8gOT6ANtGsdKe4k71QzMi"], ["name", "山崎 真央"], ["email", "annelle@doyle.test"], ["created_at", "2023-10-10 14:10:34.398289"], ["updated_at", "2023-10-10 14:10:34.398289"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:10:34.433823"], ["updated_at", "2023-10-10 14:10:34.433823"], ["user_id", 355]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mArticle Load (1.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 355]]
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:10:53 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"クロバット", "body"=>"かまいたち", "user_id"=>"355"}}
+Completed 500 Internal Server Error in 18553ms (ActiveRecord: 0.0ms | Allocations: 19531)
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "oswaldo.hirthe@murray.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "柴田 翔"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "oswaldo.hirthe@murray.example"], ["encrypted_password", "$2a$12$qSwyHTU5.tAlc47Ng4/sgurVVyu4qE7ERMtGhIIGaT/F.0/alwJqi"], ["name", "柴田 翔"], ["email", "oswaldo.hirthe@murray.example"], ["created_at", "2023-10-10 14:13:16.946892"], ["updated_at", "2023-10-10 14:13:16.946892"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (4.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:13:16.996441"], ["updated_at", "2023-10-10 14:13:16.996441"], ["user_id", 356]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:13:20 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"キレイハナ", "body"=>"ダブルニードル", "user_id"=>"356"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 356], ["LIMIT", 1]]
+  [1m[36mArticle Load (2.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 356]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 356], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 356], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 126097ms (ActiveRecord: 8.5ms | Allocations: 43819)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lindsey@hudson.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中野 太郎"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lindsey@hudson.test"], ["encrypted_password", "$2a$12$0BfRsXQI62DNwMYVt.nUl.jLG02vlQVJNfgABejL96SYDwV01afVK"], ["name", "中野 太郎"], ["email", "lindsey@hudson.test"], ["created_at", "2023-10-10 14:24:07.808529"], ["updated_at", "2023-10-10 14:24:07.808529"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:24:07.852822"], ["updated_at", "2023-10-10 14:24:07.852822"], ["user_id", 357]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:24:10 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"パラス", "body"=>"どくのこな", "user_id"=>"357"}}
+Completed 500 Internal Server Error in 12367ms (ActiveRecord: 0.0ms | Allocations: 52428)
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "perry@brown-hahn.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "清水 颯太"], ["LIMIT", 1]]
+  [1m[36mUser Create (7.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "perry@brown-hahn.example"], ["encrypted_password", "$2a$12$3Ta0ioayb1quVOWBbEO6Ue1/X3DtsIzIJDAQjFp2dopNnCIcFwh7a"], ["name", "清水 颯太"], ["email", "perry@brown-hahn.example"], ["created_at", "2023-10-10 14:25:04.276814"], ["updated_at", "2023-10-10 14:25:04.276814"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:25:04.317098"], ["updated_at", "2023-10-10 14:25:04.317098"], ["user_id", 358]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:25:06 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ハッサム", "body"=>"きあいだめ", "user_id"=>"358"}}
+Completed 500 Internal Server Error in 4552ms (ActiveRecord: 0.0ms | Allocations: 10979)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "hiram@reinger.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "小林 美咲"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "hiram@reinger.test"], ["encrypted_password", "$2a$12$kGyjDpku6a1RwaqTa9j4Du8zVrU5vqQubqdSyc1ykZnipibbbjFmS"], ["name", "小林 美咲"], ["email", "hiram@reinger.test"], ["created_at", "2023-10-10 14:27:26.672620"], ["updated_at", "2023-10-10 14:27:26.672620"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (5.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:27:26.723936"], ["updated_at", "2023-10-10 14:27:26.723936"], ["user_id", 359]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "guy@rosenbaum-goodwin.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "今井 直樹"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "guy@rosenbaum-goodwin.test"], ["encrypted_password", "$2a$12$BlXRK9p5L0yNYyNhNG6EuOEiobqQmduGn9q8GxoE8MRdIwASSn/AK"], ["name", "今井 直樹"], ["email", "guy@rosenbaum-goodwin.test"], ["created_at", "2023-10-10 14:28:20.611048"], ["updated_at", "2023-10-10 14:28:20.611048"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:28:20.673091"], ["updated_at", "2023-10-10 14:28:20.673091"], ["user_id", 360]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:28:34 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"イシツブテ", "body"=>"せいちょう", "user_id"=>"360"}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 360], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "colton@hand.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "杉山 美穂"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "colton@hand.example"], ["encrypted_password", "$2a$12$CqEY7TeeYmVNnxd4TA9L3upg3jG3HFzyyQ18rYS4aTmUIvnVyPcWu"], ["name", "杉山 美穂"], ["email", "colton@hand.example"], ["created_at", "2023-10-10 14:40:55.255580"], ["updated_at", "2023-10-10 14:40:55.255580"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:40:55.306836"], ["updated_at", "2023-10-10 14:40:55.306836"], ["user_id", 361]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "adrianna_spinka@lindgren.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (4.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "工藤 陽"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "adrianna_spinka@lindgren.test"], ["encrypted_password", "$2a$12$S.Gorb5s.rrfU/bVJ9ywO.sXWSps5oe7ZuMdBiR014ll4LtElugvm"], ["name", "工藤 陽"], ["email", "adrianna_spinka@lindgren.test"], ["created_at", "2023-10-10 14:41:10.970018"], ["updated_at", "2023-10-10 14:41:10.970018"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (4.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:41:11.016796"], ["updated_at", "2023-10-10 14:41:11.016796"], ["user_id", 362]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lillie@bins.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "横山 優那"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lillie@bins.example"], ["encrypted_password", "$2a$12$ibvNfq7qGEApjurWZsqbquo0O.GTKuq.aSA2y0G.upL2IlPqqaZF."], ["name", "横山 優那"], ["email", "lillie@bins.example"], ["created_at", "2023-10-10 14:42:49.002567"], ["updated_at", "2023-10-10 14:42:49.002567"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "test"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["body", "test"], ["created_at", "2023-10-10 14:42:49.048488"], ["updated_at", "2023-10-10 14:42:49.048488"], ["user_id", 363]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "antonette@muller-wunsch.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "村田 桜"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "antonette@muller-wunsch.test"], ["encrypted_password", "$2a$12$TrGGXJBQex8/pzR.Gdwxy.29kwegOUDD7f3yMzdx1QVbvSgVvok3u"], ["name", "村田 桜"], ["email", "antonette@muller-wunsch.test"], ["created_at", "2023-10-10 14:44:24.521096"], ["updated_at", "2023-10-10 14:44:24.521096"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:44:52 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"アーボ", "body"=>"つのでつく", "user_id"=>"364"}}
+Completed 500 Internal Server Error in 33001ms (ActiveRecord: 0.0ms | Allocations: 16355)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (44.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "ludivina.borer@boehm-leannon.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山田 輝"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "ludivina.borer@boehm-leannon.example"], ["encrypted_password", "$2a$12$uvgmlt6yjwNmjkjvQeXjMONHHOQ5g76LRyxJFGQ.sdIZ.ryPYztwW"], ["name", "山田 輝"], ["email", "ludivina.borer@boehm-leannon.example"], ["created_at", "2023-10-10 14:45:58.396437"], ["updated_at", "2023-10-10 14:45:58.396437"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:46:07 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"マンタイン", "body"=>"はっぱカッター", "user_id"=>"365"}}
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "max@kovacek.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "村上 花音"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "max@kovacek.test"], ["encrypted_password", "$2a$12$bL/TE1hNWf1t/WPUS8Wy9ec1jJ.JAhX6waooY0zzMHiE6e.DlNnPS"], ["name", "村上 花音"], ["email", "max@kovacek.test"], ["created_at", "2023-10-10 14:47:35.912132"], ["updated_at", "2023-10-10 14:47:35.912132"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-10 23:47:42 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"チコリータ", "body"=>"かえんほうしゃ", "user_id"=>"366"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 366], ["LIMIT", 1]]
+  [1m[36mArticle Load (5.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 366]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 366], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 66483ms (ActiveRecord: 30.4ms | Allocations: 55938)
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (9.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "clifford.bogisich@christiansen.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "池田 杏奈"], ["LIMIT", 1]]
+  [1m[36mUser Create (9.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "clifford.bogisich@christiansen.example"], ["encrypted_password", "$2a$12$CL9oB74V4g4DwgY7lCwJ3OdmFc/.UC3ul3RITAj5O6auSum.P4v/a"], ["name", "池田 杏奈"], ["email", "clifford.bogisich@christiansen.example"], ["created_at", "2023-10-12 13:36:14.680931"], ["updated_at", "2023-10-12 13:36:14.680931"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 22:36:14 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ネイティオ", "body"=>"がまん", "user_id"=>"367"}}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 367], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 367], ["LIMIT", 1]]
+  [1m[36mArticle Load (2.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 367]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sigrid@cronin.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "山本 美桜"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "sigrid@cronin.test"], ["encrypted_password", "$2a$12$v3JT31hxf39c/7SPLUaZtuxWc9aYta908b3sYXcBa8PXmk9vb4rNC"], ["name", "山本 美桜"], ["email", "sigrid@cronin.test"], ["created_at", "2023-10-12 13:40:08.031276"], ["updated_at", "2023-10-12 13:40:08.031276"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 22:40:08 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"アーボ", "body"=>"れんぞくパンチ", "user_id"=>"368"}}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 368], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 368], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 21506ms (ActiveRecord: 21.1ms | Allocations: 40084)
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "tamesha.rutherford@becker.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "柴田 愛"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "tamesha.rutherford@becker.example"], ["encrypted_password", "$2a$12$yoTciIuYKcirqLph9YQ9duVD2fphZf/.drJ0b4XdDSITQ4pGNtU.i"], ["name", "柴田 愛"], ["email", "tamesha.rutherford@becker.example"], ["created_at", "2023-10-12 13:50:53.815491"], ["updated_at", "2023-10-12 13:50:53.815491"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 22:50:53 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ルージュラ", "body"=>"でんきショック", "user_id"=>"369"}}
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "omer@becker.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "中山 隼人"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "omer@becker.test"], ["encrypted_password", "$2a$12$g5/.sjP8G4dgYfydn8X9uOF1CtONUSPb10MpFkRBu489a9mSm4qUu"], ["name", "中山 隼人"], ["email", "omer@becker.test"], ["created_at", "2023-10-12 13:53:08.759371"], ["updated_at", "2023-10-12 13:53:08.759371"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 22:53:08 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ニドクイン", "body"=>"れんぞくパンチ", "user_id"=>"370"}}
+Completed 500 Internal Server Error in 317888ms (ActiveRecord: 0.0ms | Allocations: 59115)
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sudie.hoppe@oconnell.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "新井 優"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "sudie.hoppe@oconnell.example"], ["encrypted_password", "$2a$12$ags0X3SDkS43Xi5/Uc6lXOd0.BU7nfx9GmEURwKzARHnGh/oGiYF."], ["name", "新井 優"], ["email", "sudie.hoppe@oconnell.example"], ["created_at", "2023-10-12 13:58:36.392570"], ["updated_at", "2023-10-12 13:58:36.392570"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 22:58:36 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"カラカラ", "body"=>"ようかいえき", "user_id"=>"371"}}
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "taisha.leannon@johns.example"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "橋本 結菜"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "taisha.leannon@johns.example"], ["encrypted_password", "$2a$12$opm0FmJnkszngKHZRKcGsOX3E/sPvLF6MQ565YQ9/qw3/G9VWRHi."], ["name", "橋本 結菜"], ["email", "taisha.leannon@johns.example"], ["created_at", "2023-10-12 14:07:40.317222"], ["updated_at", "2023-10-12 14:07:40.317222"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:07:40 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ヒノアラシ", "body"=>"メガトンパンチ", "user_id"=>"372"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 372], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "caprice@beier-johnson.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "竹内 航"], ["LIMIT", 1]]
+  [1m[36mUser Create (6.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "caprice@beier-johnson.test"], ["encrypted_password", "$2a$12$.P7hrERL6CM/zWB57cDUTuJufg4VNJFP9YGTufDdWA0HGraRwddT."], ["name", "竹内 航"], ["email", "caprice@beier-johnson.test"], ["created_at", "2023-10-12 14:13:18.201540"], ["updated_at", "2023-10-12 14:13:18.201540"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:13:18 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"カブト", "body"=>"いやなおと", "user_id"=>"373"}}
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sheri@davis.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "石田 優花"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "sheri@davis.test"], ["encrypted_password", "$2a$12$jIoPSx0NrsFT30wYF72.luiLAcqr.Vmx1kD8kgbDFB/fgToyuM3b6"], ["name", "石田 優花"], ["email", "sheri@davis.test"], ["created_at", "2023-10-12 14:13:34.113072"], ["updated_at", "2023-10-12 14:13:34.113072"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:13:34 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ヒトカゲ", "body"=>"えんまく", "user_id"=>"374"}}
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lowell@kautzer-mertz.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "三浦 悠太"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lowell@kautzer-mertz.test"], ["encrypted_password", "$2a$12$zdWpF.BIsnJk/6lJRjPHWO4cbp.icmSc9eGe6xHfdt1MJNfJ6UR8e"], ["name", "三浦 悠太"], ["email", "lowell@kautzer-mertz.test"], ["created_at", "2023-10-12 14:15:20.444378"], ["updated_at", "2023-10-12 14:15:20.444378"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:15:20 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ブースター", "body"=>"へびにらみ", "user_id"=>"375"}}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 375], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "ブースター"], ["LIMIT", 1]]
+  [1m[36mArticle Create (11.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "ブースター"], ["body", "へびにらみ"], ["created_at", "2023-10-12 14:16:26.322312"], ["updated_at", "2023-10-12 14:16:26.322312"], ["user_id", 375]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (2.91ms)
+Completed 200 OK in 71093ms (Views: 20.5ms | ActiveRecord: 40.5ms | Allocations: 122624)
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "lexie.boyle@hodkiewicz-bashirian.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "菅原 翔太"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "lexie.boyle@hodkiewicz-bashirian.test"], ["encrypted_password", "$2a$12$dZs/mFELTN2bEtbyq7smM.CHVdtLKbtJ1Haw4vNPN0gAb8hAnV1cS"], ["name", "菅原 翔太"], ["email", "lexie.boyle@hodkiewicz-bashirian.test"], ["created_at", "2023-10-12 14:21:36.339157"], ["updated_at", "2023-10-12 14:21:36.339157"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:21:36 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"サニーゴ", "body"=>"れいとうパンチ", "user_id"=>"376"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 376], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "サニーゴ"], ["LIMIT", 1]]
+  [1m[36mArticle Create (3.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "サニーゴ"], ["body", "れいとうパンチ"], ["created_at", "2023-10-12 14:21:36.474165"], ["updated_at", "2023-10-12 14:21:36.474165"], ["user_id", 376]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (2.17ms)
+Completed 200 OK in 80ms (Views: 9.1ms | ActiveRecord: 20.0ms | Allocations: 11613)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "nu_wehner@ledner-wintheiser.test"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "鈴木 遥"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "nu_wehner@ledner-wintheiser.test"], ["encrypted_password", "$2a$12$WrnaChZlWx/5/CECkc2C8OFyLA2dOm154vRR8ZDUGNsejtY7fEp/m"], ["name", "鈴木 遥"], ["email", "nu_wehner@ledner-wintheiser.test"], ["created_at", "2023-10-12 14:23:24.761759"], ["updated_at", "2023-10-12 14:23:24.761759"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/articles" for 127.0.0.1 at 2023-10-12 23:23:24 +0900
+Processing by Api::V1::ArticlesController#create as JSON
+  Parameters: {"article"=>{"title"=>"ガルーラ", "body"=>"いかり", "user_id"=>"377"}}
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 377], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER($1) LIMIT $2[0m  [["title", "ガルーラ"], ["LIMIT", 1]]
+  [1m[36mArticle Create (2.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "ガルーラ"], ["body", "いかり"], ["created_at", "2023-10-12 14:23:24.899342"], ["updated_at", "2023-10-12 14:23:24.899342"], ["user_id", 377]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered Api::V1::ArticleCreateSerializer with ActiveModelSerializers::Adapter::Attributes (1.93ms)
+Completed 200 OK in 93ms (Views: 10.0ms | ActiveRecord: 29.9ms | Allocations: 11614)
