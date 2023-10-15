@@ -3,6 +3,7 @@ class Api::V1::BaseApiController < ApplicationController
   before_action :set_user
 
   private
+
     def set_user
       @current_user = User.first   # 仮実装
     end

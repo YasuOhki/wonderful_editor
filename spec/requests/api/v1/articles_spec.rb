@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Api::V1::Articles", type: :request do
-
   describe "GET / Api_v1_articles" do
     subject { get(api_v1_article_path(article_id)) }
 
@@ -53,12 +52,11 @@ RSpec.describe "Api::V1::Articles", type: :request do
     subject { post(api_v1_articles_path, params: params) }
 
     context "正常なtitleとbodyとuser_idを渡したとき" do
-
       let(:params) do
         { article: attributes_for(:article) }
       end
 
-      fit "その記事のレコードが作成できる" do
+      it "その記事のレコードが作成できる" do
         def article_create_mock
           @current_user = FactoryBot.create(:user)
           params[:article][:user_id] = @current_user.id.to_s
@@ -66,10 +64,30 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
         allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_create_mock)
         subject
-        binding.pry
+        res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
+        expect(res["user"]["id"].to_i).to eq params[:article][:user_id].to_i
+        expect(res["title"]).to eq params[:article][:title]
+      end
+    end
+
+    context "既存の内容と同じtitleを作成使用としたとき" do
+      let(:params) do
+        { article: attributes_for(:article) }
+      end
+      it "記事が作成できない" do
+        def article_create_mock
+          tmp_user = FactoryBot.create(:user)
+          tmp_article = tmp_user.articles.create!(title: "test", body: "test")
+
+          @current_user = FactoryBot.create(:user)
+          params[:article][:title] = tmp_article[:title]    # 既存のtitleと同じにする
+          params[:article][:user_id] = @current_user.id.to_s
+        end
+
+        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_create_mock)
+        expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
-
 end
