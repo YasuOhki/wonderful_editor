@@ -13,11 +13,6 @@ module Api::V1
 
       article.save!
       render json: article, serializer: Api::V1::ArticleCreateSerializer
-      # if article.save
-      #  render json: article, serializer: Api::V1::ArticleCreateSerializer
-      # else
-      #  render json: article.errors, status: :unprocessable_entity
-      # end
     end
 
     private
