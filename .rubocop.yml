@@ -9,5 +9,11 @@ inherit_from:
 RSpec/MultipleExpectations:
   Max: 5
 
+RSpec/ExampleLength:
+  Max: 100
+
+RSpec/AnyInstance:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: 2.7

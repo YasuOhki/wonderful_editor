@@ -20,7 +20,7 @@
 #
 FactoryBot.define do
   factory :article do
-    title { Faker::Book.title }
-    body { Faker::String.random(length: 12) }
+    title { Faker::Games::Pokemon.name }
+    body { Faker::Games::Pokemon.move }
   end
 end
