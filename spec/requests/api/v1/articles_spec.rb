@@ -93,38 +93,34 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
   describe "PATCH /api_v1_articles/:id" do
     subject { patch(api_v1_article_path(@test_article.id), params: params) }
+
     context "正常なパラメータを渡したとき" do
       let(:params) do
         { article: { title: "update_title", body: "update_body" } }
       end
 
-      fit "記事が更新できる" do
+      it "記事が更新できる" do
         def article_update_mock
           @current_user = FactoryBot.create(:user)
           @test_article = @current_user.articles.create(title: "test_title", body: "test_body")
         end
 
         allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
-        subject
+
+        expect { subject }.to change { Article.find(@test_article.id).title }.from(@test_article.title).to(params[:article][:title])
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-
-        #expect{subject}.to change{ Article.find(@test_article.id).title }.from(@test_article.title).to(params[:article][:title])
-
       end
     end
 
     context "更新後のtitleが既に存在するとき" do
       it "validationエラーで記事の更新に失敗する" do
-
       end
     end
 
     context "更新時に空のカラムを渡したとき" do
       it "validationエラーで記事の更新に失敗する" do
-
       end
     end
-
   end
 end
