@@ -11,9 +11,9 @@ num_users = 3
 num_articles_by_user = 5
 
 num_users.times do |i|
-  user_name = "user#{i + 3}"
+  user_name = "user#{i + 1}"
 
-  tmp_user = User.create!(name: "#{user_name}", email: "#{user_name}@example.com", password: "test1234")
+  tmp_user = User.create!(name: user_name.to_s, email: "#{user_name}@example.com", password: "test1234")
 
   num_articles_by_user.times do |j|
     tmp_user.articles.create!(title: "#{user_name}のtitle_#{j + 1}", body: "#{user_name}のbody_#{j + 1}")
