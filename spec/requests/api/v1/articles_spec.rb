@@ -90,4 +90,60 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
     end
   end
+
+  describe "PATCH /api_v1_articles/:id" do
+    subject { patch(api_v1_article_path(@test_article.id), params: params) }
+
+    context "正常なパラメータを渡したとき" do
+      let(:params) do
+        { article: { title: "update_title", body: "update_body" } }
+      end
+
+      it "記事が更新できる" do
+        def article_update_mock
+          @current_user = FactoryBot.create(:user)
+          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
+        end
+
+        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
+
+        expect { subject }.to change { Article.find(@test_article.id).title }.from(@test_article.title).to(params[:article][:title])
+        JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "更新後のtitleが既に存在するとき" do
+      let(:params) do
+        { article: { title: "pre_test_title", body: "update_body" } }
+      end
+
+      it "validationエラーで記事の更新に失敗する" do
+        def article_update_mock
+          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
+        end
+
+        @current_user = FactoryBot.create(:user)
+        @current_user.articles.create!(title: "pre_test_title", body: "pre_test_body")
+        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
+        expect { subject }.to raise_error ActiveRecord::RecordInvalid
+      end
+    end
+
+    context "更新時に空のカラムを渡したとき" do
+      let(:params) do
+        { article: { title: "update_title", body: "" } }
+      end
+
+      it "validationエラーで記事の更新に失敗する" do
+        def article_update_mock
+          @current_user = FactoryBot.create(:user)
+          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
+        end
+
+        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
+        expect { subject }.to raise_error ActiveRecord::RecordInvalid
+      end
+    end
+  end
 end
