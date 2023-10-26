@@ -17,7 +17,7 @@ module Api::V1
 
     # PATCH /articles/:id
     def update
-      article = Article.find(params[:id])
+      article = current_user.articles.find(params[:id])
       article.update!(article_params)
       render json: article, serializer: Api::V1::ArticleDetailSerializer
     end

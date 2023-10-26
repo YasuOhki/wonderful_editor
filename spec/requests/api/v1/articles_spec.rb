@@ -51,18 +51,14 @@ RSpec.describe "Api::V1::Articles", type: :request do
   describe "POST /api_v1_articles" do
     subject { post(api_v1_articles_path, params: params) }
 
+    let(:params) { { article: attributes_for(:article) } }
+    let(:current_user) { FactoryBot.create(:user) }
+    before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
+
     context "正常なtitleとbodyとuser_idを渡したとき" do
-      let(:params) do
-        { article: attributes_for(:article) }
-      end
-
       it "その記事のレコードが作成できる" do
-        def article_create_mock
-          @current_user = FactoryBot.create(:user)
-          params[:article][:user_id] = @current_user.id.to_s
-        end
+        params[:article][:user_id] = current_user.id.to_s
 
-        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_create_mock)
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
@@ -72,76 +68,57 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "既存の内容と同じtitleを作成使用としたとき" do
-      let(:params) do
-        { article: attributes_for(:article) }
-      end
       it "記事が作成できない" do
-        def article_create_mock
-          tmp_user = FactoryBot.create(:user)
-          tmp_article = tmp_user.articles.create!(title: "test", body: "test")
+        tmp_user = FactoryBot.create(:user)
+        tmp_article = tmp_user.articles.create!(title: "test", body: "test")
+        params[:article][:title] = tmp_article[:title]    # 既存のtitleと同じにする
+        params[:article][:user_id] = current_user.id.to_s
 
-          @current_user = FactoryBot.create(:user)
-          params[:article][:title] = tmp_article[:title]    # 既存のtitleと同じにする
-          params[:article][:user_id] = @current_user.id.to_s
-        end
-
-        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_create_mock)
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
 
-  describe "PATCH /api_v1_articles/:id" do
-    subject { patch(api_v1_article_path(@test_article.id), params: params) }
+  describe "PATCH /api/v1/articles/:id" do
+    let(:current_user) { FactoryBot.create(:user) }
+    before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
     context "正常なパラメータを渡したとき" do
-      let(:params) do
-        { article: { title: "update_title", body: "update_body" } }
-      end
+      subject { patch(api_v1_article_path(test_article.id), params: params) }
+
+      let(:params) { { article: attributes_for(:article) } }
+      let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
       it "記事が更新できる" do
-        def article_update_mock
-          @current_user = FactoryBot.create(:user)
-          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
-        end
-
-        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
-
-        expect { subject }.to change { Article.find(@test_article.id).title }.from(@test_article.title).to(params[:article][:title])
-        JSON.parse(response.body)
+        expect { subject }.to change { test_article.reload.title }.from(test_article.title).to(params[:article][:title])
         expect(response).to have_http_status(:ok)
       end
     end
 
     context "更新後のtitleが既に存在するとき" do
+      subject { patch(api_v1_article_path(test_article.id), params: params) }
+
       let(:params) do
         { article: { title: "pre_test_title", body: "update_body" } }
       end
 
-      it "validationエラーで記事の更新に失敗する" do
-        def article_update_mock
-          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
-        end
+      let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
-        @current_user = FactoryBot.create(:user)
-        @current_user.articles.create!(title: "pre_test_title", body: "pre_test_body")
-        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
-        expect { subject }.to raise_error ActiveRecord::RecordInvalid
+      it "validationエラーで記事の更新に失敗する" do
+        current_user.articles.create!(title: "pre_test_title", body: "pre_test_body")
+        expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
     context "更新時に空のカラムを渡したとき" do
+      subject { patch(api_v1_article_path(test_article.id), params: params) }
+
       let(:params) do
         { article: { title: "update_title", body: "" } }
       end
+      let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
       it "validationエラーで記事の更新に失敗する" do
-        def article_update_mock
-          @current_user = FactoryBot.create(:user)
-          @test_article = @current_user.articles.create!(title: "test_title", body: "test_body")
-        end
-
-        allow_any_instance_of(Api::V1::BaseApiController).to receive(:set_user).and_return(article_update_mock)
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
