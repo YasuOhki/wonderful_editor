@@ -15,5 +15,8 @@ RSpec/ExampleLength:
 RSpec/AnyInstance:
   Enabled: false
 
+RSpec/LetSetup:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: 2.7
