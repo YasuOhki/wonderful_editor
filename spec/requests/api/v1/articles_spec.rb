@@ -125,15 +125,15 @@ RSpec.describe "Api::V1::Articles", type: :request do
   end
 
   describe "DELETE /api/v1/articles/:id" do
-    # subject { delete(api_v1_article_path(article_id)) }
+    subject { delete(api_v1_article_path(article_id)) }
+
+    let(:current_user) { FactoryBot.create(:user) }
+    let(:article_id) { article.id }
+
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
     context "存在するユーザに紐づく記事を削除したとき" do
-      subject { delete(api_v1_article_path(article_id)) }
-
-      let(:current_user) { FactoryBot.create(:user) }
-      let(:article_id) { article.id }
-      let(:article) { FactoryBot.create(:article, user: current_user) }
+      let!(:article) { FactoryBot.create(:article, user: current_user) }
 
       it "該当記事の削除に成功する" do
         subject
@@ -142,13 +142,8 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "存在するユーザであるがそのユーザに紐づかない記事を削除しようとしたとき" do
-      subject { delete(api_v1_article_path(article_id)) }
-
-      let(:current_user) { FactoryBot.create(:user) }
-      let(:article) { FactoryBot.create(:article, user: current_user) }
       let(:other_user) { FactoryBot.create(:user) }
-      let(:other_article) { FactoryBot.create(:article, user: other_user) }
-      let(:article_id) { other_article.id }
+      let!(:article) { FactoryBot.create(:article, user: other_user) }
 
       it "該当記事の削除に失敗する" do
         expect { subject }.to raise_error ActiveRecord::RecordNotFound
