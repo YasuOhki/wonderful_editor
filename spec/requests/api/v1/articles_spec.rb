@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Api::V1::Articles", type: :request do
+  # index
   describe "GET / Api_v1_articles" do
-    subject { get(api_v1_article_path(article_id)) }
+    subject { get(api_v1_articles_path) }
 
     context "Articleクラスにレコードがあるとき" do
       it "更新日時順に設定したカラムが表示されること" do
@@ -10,7 +11,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         tmp_user.articles.create!(title: "test1", body: "test1")
         tmp_user.articles.create!(title: "test2", body: "test2")
         tmp_user.articles.create!(title: "test3", body: "test3")
-        get api_v1_article_preview_index_path
+        subject
         expect(tmp_user.articles.count).to be > 0
         expect(response).to have_http_status(:ok)
       end
@@ -19,11 +20,16 @@ RSpec.describe "Api::V1::Articles", type: :request do
     context "Articleクラスにレコードがないとき" do
       it "エラーではなく空白のページが表示されること" do
         tmp_user = FactoryBot.create(:user)
-        get api_v1_article_preview_index_path
+        subject
         expect(tmp_user.articles.count).to eq 0
         expect(response).to have_http_status(:ok)
       end
     end
+  end
+
+  # show
+  describe "GET / Api_v1_article" do
+    subject { get(api_v1_article_path(article_id)) }
 
     context "指定したidの記事が存在するとき" do
       let(:tmp_user) { FactoryBot.create(:user) }
@@ -48,6 +54,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
 
+  # create
   describe "POST /api_v1_articles" do
     subject { post(api_v1_articles_path, params: params) }
 
@@ -71,7 +78,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
       it "記事が作成できない" do
         tmp_user = FactoryBot.create(:user)
         tmp_article = tmp_user.articles.create!(title: "test", body: "test")
-        params[:article][:title] = tmp_article[:title]    # 既存のtitleと同じにする
+        params[:article][:title] = tmp_article[:title] # 既存のtitleと同じにする
         params[:article][:user_id] = current_user.id.to_s
 
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
@@ -79,6 +86,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
 
+  # update
   describe "PATCH /api/v1/articles/:id" do
     let(:current_user) { FactoryBot.create(:user) }
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
@@ -124,6 +132,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
   end
 
+  # destroy
   describe "DELETE /api/v1/articles/:id" do
     subject { delete(api_v1_article_path(article_id)) }
 

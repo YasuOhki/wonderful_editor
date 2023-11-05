@@ -1,8 +1,10 @@
 module Api::V1
   class ArticlesController < BaseApiController
     def index
-      articles = Article.order(updated_at: :desc)
-      render json: articles, each_serializer: Api::V1::ArticlePreviewSerializer
+      articles = Article.all.order(updated_at: "DESC")    # 更新日順に並び替え
+
+      render json: articles,
+             each_serializer: Api::V1::ArticlePreviewSerializer
     end
 
     # GET /article/1
