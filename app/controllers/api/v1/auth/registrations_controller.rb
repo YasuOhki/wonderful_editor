@@ -5,7 +5,6 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
 
     # 親クラスのsign_up_paramsメソッドをオーバーライドしている？
     def sign_up_params
-      # params.require(:registration).permit(:name, :email, :password, :password_confirmation)
-      params.require(:registration).permit(:email, :password)
+      params.permit(:email, :password, :name)
     end
 end
