@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "Api::V1::Auth::sessions", type: :request do
   describe "POST /v1/auth/sign_in" do
     subject { post(api_v1_user_session_path, params: params) }
+
     let!(:first_user) { FactoryBot.create(:user) }
 
     context "正しい内容で必要な全てのパラメータを入力したとき" do
