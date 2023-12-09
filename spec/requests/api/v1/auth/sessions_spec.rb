@@ -40,18 +40,12 @@ RSpec.describe "Api::V1::Auth::sessions", type: :request do
   describe "POST /v1/auth/sign_out" do
     subject { delete(destroy_api_v1_user_session_path, headers: headers) }
 
-    # まずfirst_userとしてログインする
-    def user_login
-      @first_user = FactoryBot.create(:user)
-      params = { email: @first_user.email, password: @first_user.password, name: @first_user.name }
-      post(api_v1_user_session_path, params: params)
-    end
-
     context "ログアウトに必要なヘッダ情報が揃っているとき" do
-      let(:headers) { @first_user.create_new_auth_token }
-      fit "ログアウトに成功する" do
-        user_login
-        subject
+      let(:first_user) { FactoryBot.create(:user) }
+      let!(:headers) { first_user.create_new_auth_token }
+
+      it "ログアウトに成功する" do
+        expect { subject }.to change { first_user.reload.tokens }.from(be_present).to(be_blank)
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok) # 200
         expect(res["success"]).to eq true
@@ -59,14 +53,14 @@ RSpec.describe "Api::V1::Auth::sessions", type: :request do
     end
 
     context "ログアウトに必要なヘッダ情報が不足しているとき(uidがない)" do
+      let(:first_user) { FactoryBot.create(:user) }
+      let!(:headers) { first_user.create_new_auth_token.merge(uid: "") }
+
       it "ログアウトに失敗する" do
-
-      end
-    end
-
-    context "ログアウトしたいユーザではないユーザのヘッダ情報を入力したとき" do
-      it "ログアウトに失敗する" do
-
+        subject
+        res = JSON.parse(response.body)
+        expect(res["success"]).to eq false
+        expect(res["errors"]).to include "User was not found or was not logged in."
       end
     end
   end
