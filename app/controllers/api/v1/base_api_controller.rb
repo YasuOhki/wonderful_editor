@@ -1,9 +1,5 @@
 class Api::V1::BaseApiController < ApplicationController
-  before_action :current_user
-
-  private
-
-    def current_user
-      @current_user = User.first   # 仮実装
-    end
+  alias_method :current_user, :current_api_v1_user
+  alias_method :authenticate_user!, :authenticate_api_v1_user!
+  alias_method :user_signed_in?, :api_v1_user_signed_in?
 end

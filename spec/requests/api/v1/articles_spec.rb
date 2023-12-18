@@ -56,9 +56,10 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
   # create
   describe "POST /api_v1_articles" do
-    subject { post(api_v1_articles_path, params: params) }
+    subject { post(api_v1_articles_path, params: params, headers: headers) }
 
     let(:params) { { article: attributes_for(:article) } }
+    let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { FactoryBot.create(:user) }
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
@@ -92,9 +93,10 @@ RSpec.describe "Api::V1::Articles", type: :request do
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
     context "正常なパラメータを渡したとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params) }
+      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
 
       let(:params) { { article: attributes_for(:article) } }
+      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
       it "記事が更新できる" do
@@ -104,12 +106,12 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "更新後のtitleが既に存在するとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params) }
+      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
 
       let(:params) do
         { article: { title: "pre_test_title", body: "update_body" } }
       end
-
+      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
       it "validationエラーで記事の更新に失敗する" do
@@ -119,11 +121,12 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "更新時に空のカラムを渡したとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params) }
+      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
 
       let(:params) do
         { article: { title: "update_title", body: "" } }
       end
+      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
       it "validationエラーで記事の更新に失敗する" do
@@ -134,9 +137,10 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
   # destroy
   describe "DELETE /api/v1/articles/:id" do
-    subject { delete(api_v1_article_path(article_id)) }
+    subject { delete(api_v1_article_path(article_id), headers: headers) }
 
     let(:current_user) { FactoryBot.create(:user) }
+    let(:headers) { current_user.create_new_auth_token }
     let(:article_id) { article.id }
 
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }

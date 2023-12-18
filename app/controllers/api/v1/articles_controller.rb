@@ -1,8 +1,9 @@
 module Api::V1
   class ArticlesController < BaseApiController
+    before_action :authenticate_user!, only: [:create, :update, :destroy]
+
     def index
       articles = Article.all.order(updated_at: "DESC")    # 更新日順に並び替え
-
       render json: articles,
              each_serializer: Api::V1::ArticlePreviewSerializer
     end
@@ -15,10 +16,7 @@ module Api::V1
 
     # POST /article
     def create
-      @current_user = User.find(params[:article][:user_id])
-      article = @current_user.articles.new(article_params)
-
-      article.save!
+      article = current_user.articles.create!(article_params)
       render json: article, serializer: Api::V1::ArticleCreateSerializer
     end
 
