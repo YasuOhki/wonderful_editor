@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :text
+#  status     :integer          default(0)
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,6 +22,7 @@
 class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :body, presence: true
+  validates :status, inclusion: { in: [0, 1] }
 
   has_many :comments, dependent: :restrict_with_exception
   has_many :article_likes, dependent: :restrict_with_exception
