@@ -23,5 +23,6 @@ FactoryBot.define do
   factory :article do
     title { Faker::Games::Pokemon.name }
     body { Faker::Games::Pokemon.move }
+    status { 0 }
   end
 end
