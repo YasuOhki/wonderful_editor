@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2023_12_24_145817) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", default: 1, null: false
-    t.integer "status", default: 0
+    t.string "status", default: "draft"
     t.index ["title"], name: "index_articles_on_title", unique: true
     t.index ["user_id"], name: "index_articles_on_user_id"
   end

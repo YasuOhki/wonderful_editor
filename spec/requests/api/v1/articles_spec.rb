@@ -63,39 +63,15 @@ RSpec.describe "Api::V1::Articles", type: :request do
     let(:current_user) { FactoryBot.create(:user) }
     before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
 
-    context "正常なtitleとbodyとuser_idと下書きのステータス(0)を渡したとき" do
+    context "正常なtitleとbodyとuser_idを渡したとき" do
       it "その記事のレコードが作成できる" do
         params[:article][:user_id] = current_user.id.to_s
-        params[:article][:status] = 0
 
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
         expect(res["user"]["id"].to_i).to eq params[:article][:user_id].to_i
-        expect(res["status"]).to eq params[:article][:status]
         expect(res["title"]).to eq params[:article][:title]
-      end
-    end
-
-    context "正常なtitleとbodyとuser_idと公開記事のステータス(1)を渡したとき" do
-      it "その記事のレコードが作成できる" do
-        params[:article][:user_id] = current_user.id.to_s
-        params[:article][:status] = 1
-
-        subject
-        res = JSON.parse(response.body)
-        expect(response).to have_http_status(:ok)
-        expect(res["user"]["id"].to_i).to eq params[:article][:user_id].to_i
-        expect(res["status"]).to eq params[:article][:status]
-        expect(res["title"]).to eq params[:article][:title]
-      end
-    end
-
-    context "正常なtitleとbodyとuser_idと未定義のステータス(2)を渡したとき" do
-      it "その記事の作成に失敗する" do
-        params[:article][:user_id] = current_user.id.to_s
-        params[:article][:status] = 2
-        expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
 

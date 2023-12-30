@@ -1,5 +1,5 @@
 class AddStatusToArticles < ActiveRecord::Migration[6.1]
   def change
-    add_column :articles, :status, :integer, default: 0
+    add_column :articles, :status, :string, default: "draft"
   end
 end

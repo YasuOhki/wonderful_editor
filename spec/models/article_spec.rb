@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :text
-#  status     :integer          default(0)
+#  status     :string           default("draft")
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -58,6 +58,33 @@ RSpec.describe Article, type: :model do
       test_article.persisted?
       expect(test_article.valid?).to eq false
       expect(test_article.errors.details[:title][0][:error]).to eq :taken
+    end
+  end
+
+  context "ステータスが指定されていないとき" do
+    let(:article) { create(:article) }
+
+    it "draftの記事が作成できる" do
+      expect(article).to be_valid
+      expect(article.status).to eq "draft"
+    end
+  end
+
+  context "draft(0)として指定したとき" do
+    let(:article) { create(:article, status: "draft") }
+
+    it "記事作成に成功する" do
+      expect(article.valid?).to eq true
+      expect(article.status).to eq "draft"
+    end
+  end
+
+  context "published(1)として指定したとき" do
+    let(:article) { create(:article, status: "published") }
+
+    it "記事作成に成功する" do
+      expect(article.valid?).to eq true
+      expect(article.status).to eq "published"
     end
   end
 end
