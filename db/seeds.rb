@@ -16,6 +16,10 @@ num_users.times do |i|
   tmp_user = User.create!(name: user_name.to_s, email: "#{user_name}@example.com", password: "test1234")
 
   num_articles_by_user.times do |j|
-    tmp_user.articles.create!(title: "#{user_name}のtitle_#{j + 1}", body: "#{user_name}のbody_#{j + 1}")
+    if j.even?
+      tmp_user.articles.create!(title: "#{user_name}のtitle_#{j + 1}", body: "#{user_name}のbody_#{j + 1}", status: "draft")
+    else
+      tmp_user.articles.create!(title: "#{user_name}のtitle_#{j + 1}", body: "#{user_name}のbody_#{j + 1}", status: "published")
+    end
   end
 end
