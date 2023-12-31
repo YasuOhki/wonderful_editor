@@ -25,6 +25,19 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
+
+    context "statusがdraftの記事を1つとpublishedの記事を2つ作成したとき" do
+      it "一覧に2つだけ記事が表示されること" do
+        FactoryBot.create(:article) # あえてstatus指定しない(デフォルトがdraft)
+        FactoryBot.create(:article, status: "published")
+        FactoryBot.create(:article, status: "published")
+        subject
+        res = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(res.count).to eq Article.where(status: "published").count
+        expect(res.count).not_to eq Article.count
+      end
+    end
   end
 
   # show
