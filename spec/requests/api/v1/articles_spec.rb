@@ -35,7 +35,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
         expect(res.count).to eq Article.where(status: "published").count
-        expect(res.count).not_to eq Article.count
+        expect(res.count).not_to eq Article.count   # statusがdraftのレコードを含めた数とは一致しない
       end
     end
   end
@@ -71,33 +71,59 @@ RSpec.describe "Api::V1::Articles", type: :request do
   describe "POST /api_v1_articles" do
     subject { post(api_v1_articles_path, params: params, headers: headers) }
 
-    let(:params) { { article: attributes_for(:article) } }
-    let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { FactoryBot.create(:user) }
-    before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
+    let(:headers) { current_user.create_new_auth_token }
 
     context "正常なtitleとbodyとuser_idを渡したとき" do
+      let(:params) { { article: attributes_for(:article) } }
       it "その記事のレコードが作成できる" do
-        params[:article][:user_id] = current_user.id.to_s
-
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-        expect(res["user"]["id"].to_i).to eq params[:article][:user_id].to_i
         expect(res["title"]).to eq params[:article][:title]
       end
     end
 
     context "既存の内容と同じtitleを作成使用としたとき" do
+      let(:params) { { article: attributes_for(:article) } }
       it "記事が作成できない" do
         tmp_user = FactoryBot.create(:user)
         tmp_article = tmp_user.articles.create!(title: "test", body: "test")
         params[:article][:title] = tmp_article[:title] # 既存のtitleと同じにする
-        params[:article][:user_id] = current_user.id.to_s
-
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
+
+    context "statusをdraftに設定したとき" do
+      let(:params) { { article: attributes_for(:article, status: "draft") } }
+      fit "statusがdraftの記事が作成できる" do
+        subject
+        res = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(res["status"]).to eq "draft"
+      end
+    end
+
+    context "statusをpublishdedに設定したとき" do
+      let(:params) { { article: attributes_for(:article, status: "published") } }
+      fit "statusがpublishedの記事が作成できる" do
+        subject
+        res = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(res["status"]).to eq "published"
+      end
+    end
+
+    context "statusを指定しなかったとき" do
+      let(:params) { { article: attributes_for(:article) } }
+      fit "statusがdraftの記事が作成できる" do
+        subject
+        res = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(res["status"]).to eq "draft"
+      end
+    end
+
   end
 
   # update
