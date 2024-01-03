@@ -96,7 +96,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     context "statusをdraftに設定したとき" do
       let(:params) { { article: attributes_for(:article, status: "draft") } }
-      fit "statusがdraftの記事が作成できる" do
+      it "statusがdraftの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
@@ -106,7 +106,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     context "statusをpublishdedに設定したとき" do
       let(:params) { { article: attributes_for(:article, status: "published") } }
-      fit "statusがpublishedの記事が作成できる" do
+      it "statusがpublishedの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
@@ -116,7 +116,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     context "statusを指定しなかったとき" do
       let(:params) { { article: attributes_for(:article) } }
-      fit "statusがdraftの記事が作成できる" do
+      it "statusがdraftの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
@@ -128,47 +128,40 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
   # update
   describe "PATCH /api/v1/articles/:id" do
+    subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
+    let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { FactoryBot.create(:user) }
-    before { allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user) }
+
 
     context "正常なパラメータを渡したとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
-
       let(:params) { { article: attributes_for(:article) } }
-      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
-      it "記事が更新できる" do
+      fit "記事が更新できる" do
         expect { subject }.to change { test_article.reload.title }.from(test_article.title).to(params[:article][:title])
         expect(response).to have_http_status(:ok)
       end
     end
 
     context "更新後のtitleが既に存在するとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
-
       let(:params) do
         { article: { title: "pre_test_title", body: "update_body" } }
       end
-      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
-      it "validationエラーで記事の更新に失敗する" do
+      fit "validationエラーで記事の更新に失敗する" do
         current_user.articles.create!(title: "pre_test_title", body: "pre_test_body")
         expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
     context "更新時に空のカラムを渡したとき" do
-      subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
-
       let(:params) do
         { article: { title: "update_title", body: "" } }
       end
-      let(:headers) { current_user.create_new_auth_token }
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
-      it "validationエラーで記事の更新に失敗する" do
+      fit "validationエラーで記事の更新に失敗する" do
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
