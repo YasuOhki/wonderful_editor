@@ -35,7 +35,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
         expect(res.count).to eq Article.where(status: "published").count
-        expect(res.count).not_to eq Article.count   # statusがdraftのレコードを含めた数とは一致しない
+        expect(res.count).not_to eq Article.count # statusがdraftのレコードを含めた数とは一致しない
       end
     end
   end
@@ -123,21 +123,20 @@ RSpec.describe "Api::V1::Articles", type: :request do
         expect(res["status"]).to eq "draft"
       end
     end
-
   end
 
   # update
   describe "PATCH /api/v1/articles/:id" do
     subject { patch(api_v1_article_path(test_article.id), params: params, headers: headers) }
+
     let(:headers) { current_user.create_new_auth_token }
     let(:current_user) { FactoryBot.create(:user) }
-
 
     context "正常なパラメータを渡したとき" do
       let(:params) { { article: attributes_for(:article) } }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
-      fit "記事が更新できる" do
+      it "記事が更新できる" do
         expect { subject }.to change { test_article.reload.title }.from(test_article.title).to(params[:article][:title])
         expect(response).to have_http_status(:ok)
       end
@@ -149,7 +148,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
-      fit "validationエラーで記事の更新に失敗する" do
+      it "validationエラーで記事の更新に失敗する" do
         current_user.articles.create!(title: "pre_test_title", body: "pre_test_body")
         expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
@@ -161,8 +160,28 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
-      fit "validationエラーで記事の更新に失敗する" do
+      it "validationエラーで記事の更新に失敗する" do
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
+      end
+    end
+
+    context "statusをdraftからpublishedに設定したとき" do
+      let(:params) { { article: attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: current_user) } }
+      let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
+
+      it "記事のstatusが更新される" do
+        expect { subject }.to change { test_article.reload.status }.from(test_article.status).to(params[:article][:status])
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "ログイン中のユーザ以外の記事を更新しようとしたとき" do
+      let!(:dummy_user) { FactoryBot.create(:user) }
+      let(:params) { { article: attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: dummy_user) } }
+      let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: dummy_user) }
+
+      it "記事の更新に失敗する" do
+        expect { subject }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
