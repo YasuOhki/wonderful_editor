@@ -2,6 +2,7 @@ module Api::V1
   class ArticlesController < BaseApiController
     before_action :authenticate_user!, only: [:create, :update, :destroy]
 
+    # GET /article
     def index
       articles = Article.where(status: "published").order(updated_at: "DESC")    # 更新日順に並び替え
       render json: articles,
