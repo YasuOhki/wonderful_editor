@@ -14,6 +14,7 @@ module Api::V1
     end
 
     private
+
       def draft_params
         params.require(:article).permit(:title, :body, :status, :user_id)
       end

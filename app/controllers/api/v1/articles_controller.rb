@@ -4,7 +4,7 @@ module Api::V1
 
     # GET /article
     def index
-      articles = Article.where(status: "published").order(updated_at: "DESC")    # 更新日順に並び替え
+      articles = Article.where(status: "published").order(updated_at: "DESC") # 更新日順に並び替え
       render json: articles,
              each_serializer: Api::V1::ArticlePreviewSerializer
     end
