@@ -16,6 +16,7 @@ module Api::V1
     private
 
       def draft_params
+        binding.pry
         params.require(:article).permit(:title, :body, :status, :user_id)
       end
   end
