@@ -18,7 +18,7 @@ module Api::V1
     # POST /article
     def create
       article = current_user.articles.create!(article_params)
-      render json: article, serializer: Api::V1::ArticleCreateSerializer
+      render json: article, serializer: Api::V1::ArticleDetailSerializer
     end
 
     # PATCH /articles/:id
@@ -38,7 +38,7 @@ module Api::V1
     private
 
       def article_params
-        params.require(:article).permit(:title, :body, :status, :user_id)
+        params.permit(:title, :body, :status)
       end
   end
 end
