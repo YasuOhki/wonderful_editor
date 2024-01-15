@@ -38,7 +38,6 @@ module Api::V1
     private
 
       def article_params
-        # params.require(:article).permit(:title, :body, :status, :user_id)
         params.permit(:title, :body, :status)
       end
   end

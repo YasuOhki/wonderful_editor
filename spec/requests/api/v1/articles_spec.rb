@@ -75,27 +75,27 @@ RSpec.describe "Api::V1::Articles", type: :request do
     let(:headers) { current_user.create_new_auth_token }
 
     context "正常なtitleとbodyとuser_idを渡したとき" do
-      let(:params) { { article: attributes_for(:article) } }
+      let(:params) { attributes_for(:article) }
       it "その記事のレコードが作成できる" do
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-        expect(res["title"]).to eq params[:article][:title]
+        expect(res["title"]).to eq params[:title]
       end
     end
 
     context "既存の内容と同じtitleを作成使用としたとき" do
-      let(:params) { { article: attributes_for(:article) } }
+      let(:params) { attributes_for(:article) }
       it "記事が作成できない" do
         tmp_user = FactoryBot.create(:user)
         tmp_article = tmp_user.articles.create!(title: "test", body: "test")
-        params[:article][:title] = tmp_article[:title] # 既存のtitleと同じにする
+        params[:title] = tmp_article[:title] # 既存のtitleと同じにする
         expect { subject }.to raise_error ActiveRecord::RecordInvalid
       end
     end
 
     context "statusをdraftに設定したとき" do
-      let(:params) { { article: attributes_for(:article, status: "draft") } }
+      let(:params) { attributes_for(:article, status: "draft") }
       it "statusがdraftの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
@@ -105,7 +105,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "statusをpublishdedに設定したとき" do
-      let(:params) { { article: attributes_for(:article, status: "published") } }
+      let(:params) { attributes_for(:article, status: "published") }
       it "statusがpublishedの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
@@ -115,7 +115,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "statusを指定しなかったとき" do
-      let(:params) { { article: attributes_for(:article) } }
+      let(:params) { attributes_for(:article) }
       it "statusがdraftの記事が作成できる" do
         subject
         res = JSON.parse(response.body)
@@ -133,18 +133,18 @@ RSpec.describe "Api::V1::Articles", type: :request do
     let(:current_user) { FactoryBot.create(:user) }
 
     context "正常なパラメータを渡したとき" do
-      let(:params) { { article: attributes_for(:article) } }
+      let(:params) { attributes_for(:article) }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
       it "記事が更新できる" do
-        expect { subject }.to change { test_article.reload.title }.from(test_article.title).to(params[:article][:title])
+        expect { subject }.to change { test_article.reload.title }.from(test_article.title).to(params[:title])
         expect(response).to have_http_status(:ok)
       end
     end
 
     context "更新後のtitleが既に存在するとき" do
       let(:params) do
-        { article: { title: "pre_test_title", body: "update_body" } }
+        { title: "pre_test_title", body: "update_body" }
       end
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
@@ -156,7 +156,7 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     context "更新時に空のカラムを渡したとき" do
       let(:params) do
-        { article: { title: "update_title", body: "" } }
+        { title: "update_title", body: "" }
       end
       let(:test_article) { current_user.articles.create!(title: "test_title", body: "test_body") }
 
@@ -166,18 +166,18 @@ RSpec.describe "Api::V1::Articles", type: :request do
     end
 
     context "statusをdraftからpublishedに設定したとき" do
-      let(:params) { { article: attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: current_user) } }
+      let(:params) { attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: current_user) }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: current_user) }
 
       it "記事のstatusが更新される" do
-        expect { subject }.to change { test_article.reload.status }.from(test_article.status).to(params[:article][:status])
+        expect { subject }.to change { test_article.reload.status }.from(test_article.status).to(params[:status])
         expect(response).to have_http_status(:ok)
       end
     end
 
     context "ログイン中のユーザ以外の記事を更新しようとしたとき" do
       let!(:dummy_user) { FactoryBot.create(:user) }
-      let(:params) { { article: attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: dummy_user) } }
+      let(:params) { attributes_for(:article, title: test_article.title, body: test_article.body, status: "published", user: dummy_user) }
       let(:test_article) { Article.create!(title: "test_title", body: "test_body", user: dummy_user) }
 
       it "記事の更新に失敗する" do
